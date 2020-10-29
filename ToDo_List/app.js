@@ -58,6 +58,9 @@ function deleteCheck(e){
         //Animation
         todo.classList.add('fall');
         removeLocalTodos(todo);
+        if (todo.classList.contains('completed')){
+            removeLocalCompletedTodo(todo);
+        }
         // Removes element after animation is finished, not before
         todo.addEventListener('transitionend', function(){
             todo.remove()
@@ -69,6 +72,8 @@ function deleteCheck(e){
         const todo = item.parentElement;
         // We add class 'completed' to task that we cliked with check btn
         todo.classList.toggle('completed');
+        //console.log(todo.innerText);
+        saveLocalCompletedTasks(todo.innerText);
     }
 }
 
@@ -111,17 +116,45 @@ function saveLocalTodos (todo) {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+function saveLocalCompletedTasks(todo) {
+    let completedTodos;
+
+    if (localStorage.getItem('completedTodos') === null) {
+        completedTodos = [];
+    } else {
+        completedTodos = JSON.parse(localStorage.getItem('completedTodos'));
+    }
+    completedTodos.push(todo);
+    localStorage.setItem('completedTodos', JSON.stringify(completedTodos));
+
+    /* if (!completedTodos.contains(todo)){
+        completedTodos.push(todo);
+        localStorage.setItem('completedTodos', JSON.stringify(completedTodos));
+    } */
+}
+
 function getTodos() {
     let todos;
+    let completedTodos;
     if (localStorage.getItem('todos') === null){
         todos = [];
     } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
+
+    if (localStorage.getItem('completedTodos') === null){
+        completedTodos = [];
+    } else {
+        completedTodos = JSON.parse(localStorage.getItem('completedTodos'));
+    }
+
     todos.forEach(function(todo) {
 
         const todoDiv = document.createElement('div');
         todoDiv.classList.add('todo');
+        if (completedTodos.includes(todo)){
+            todoDiv.classList.add('completed');
+        }
         // Create <li>
         const newTodo = document.createElement('li');
         newTodo.innerText = todo;
@@ -154,11 +187,24 @@ function removeLocalTodos(todo) {
     } else {
         todos = JSON.parse(localStorage.getItem('todos'));
     }
-    console.log(todo.children[0].innerText);
+    // console.log(todo.children[0].innerText);
     const todoIndex = todo.children[0].innerText;
     // Check the index of specific element and delete it
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+function removeLocalCompletedTodo (todo) {
+    let completedTodos;
+
+    if(localStorage.getItem('completedTodos') === null) {
+        completedTodos = [];
+    } else {
+        completedTodos = JSON.parse(localStorage.getItem('completedTodos'))
+    }
+    // console.log(todo.children[0].innerText);
+    const completedIndex = todo.children[0].innerText;
+    completedTodos.splice( completedTodos.indexOf(completedIndex), 1);
+    localStorage.setItem('completedTodos', JSON.stringify(completedTodos));
+}
 
