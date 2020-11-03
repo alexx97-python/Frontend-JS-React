@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>English Vocabulary Simulator</title>
+</head>
+<body>
+    <header class="title"> Your <br> English <br> Vocabulary </header>
+    <label for="options">Choose your action:</label>
+    <div class="options-catalog">
+        <select name="options" class="select-options" id="select-options">
+            <option class="option" value="add-words">Add words</option>
+            <option class="option" value="train-vocabulary">Train Your Vocabulary</option>
+        </select>
+    </div>
+    <div class="btn-div">
+        <button class="start-vocabulary">
+            Begin your studying
+        </button>
+    </div>
+    <div class="bg-img-addword">
+        <form action="" method="POST" class="addWordsForm">
+            <label for="Word">Enter your word: </label> <br>
+            <input type="text" id="Word" name="enword" required> <br>
+            <label for="Translation">Enter right Translation: </label> <br>
+            <input type="text" id="Translation" name="Translation" required> <br>
+            <label for="Description">Give this word a Description:</label> <br>
+            <input type="text" id="Description" name="Description" required> <br>
+            <!-- <label for="image"> Add an image related to your word:</label> <br>
+            <input type="file"><br> -->
+            <button type="submit"
+            onclick="alert('We have added you word in vocabulary')">
+            Add word
+            </button>
+        </form>
+    </div>
+    <script src="base.js"></script>
+    <script src="./plugins/addWordFormModal.js"></script>
+    <script src="vocabulary.js"></script>
+    
+</body>
+</html>

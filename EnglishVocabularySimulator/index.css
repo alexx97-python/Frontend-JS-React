@@ -1,0 +1,142 @@
+body {
+    background-image: url('./English_header.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title{
+    text-align: right;
+    font-size: 4.5rem;
+    font-style: italic;
+    border-color: black;
+    border: black;
+    position: absolute right;
+}
+
+.start-vocabulary {
+    background-color: rgba(210, 233, 6, 0);
+    border: 2px black solid;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.start-vocabulary:hover{
+    background-color:rgba(0, 0, 0, 0);
+    color: rgba(18, 230, 212, 0.8);
+    border-color: rgba(18, 230, 212, 0.8);
+}
+
+.btn-div {
+    justify-items: center;
+    text-align: center;
+}
+.options-catalog {
+    position: relative;
+}
+
+.options {
+    position: absolute;
+    top: 100px;
+    size: 100px;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    image-orientation: inherit;
+}
+
+.bg-img-addword {
+    background-color: rgba(18, 230, 212, 0.8);
+    width: 300px;
+    display: table;
+    position: center;
+    text-align: center;
+    border: 2px solid;
+}
+
+.options-catalog {
+    position: absolute top left;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.label-radio{
+    font-size: 1.2em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 0px;
+    padding: 20px;
+    place-items: right normal;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+.input-radio{
+    text-align: right;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease-in;
+}
+.modal-window {
+    width: 600px;
+    border-radius: 5px;
+    background-color: white;
+    margin: 0 auto;
+    transform: translateY(-200px);
+    transition: transform .2s ease-in;
+}
+.modal-header {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid ;
+}
+
+.words-choose-modal.open .modal-overlay,
+.words-choose-modal.open .modal-window {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.words-choose-modal.hide .modal-overlay,
+.words-choose-modal.hide .modal-window {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.words-choose-modal.hide .modal-window {
+    transform: translateY(-200px);
+}
+
+.words-choose-modal.hide .modal-overlay{
+    background: rgba(0, 0, 0, 0);
+}
+
+.words-choose-modal.open .modal-window{
+    transform: translateY(100px);
+}
+
+.words-choose-modal.open .modal-overlay{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+.modal-window, .modal-overlay {
+    opacity: 0;
+    z-index: -1;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+
