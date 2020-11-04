@@ -1,0 +1,23 @@
+.jskmb-calculator {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.jskmb-calculator .operations-block button {
+    height: 40px;
+    width: 40px;
+    margin: 20px;
+}
+
+.inputs-block label {
+    display: block;
+}
+
+.inputs-block div {
+    display: inline-block;
+    padding: 20px;
+}
