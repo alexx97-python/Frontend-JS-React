@@ -1,47 +1,47 @@
+
 // Variables
 const buttonPlus = document.getElementById('buttonPlus');
 const buttonMinus = document.getElementById('buttonMinus');
 const buttonMultiply = document.getElementById('buttonMultiply');
 const buttonDevide = document.getElementById('buttonDevide');
 
+// this function take event as argument and depend on it, makes decisions
+function onOperationButtonClick(eventObject) {
+    let clickedElement = eventObject.currentTarget;
+    let operator = clickedElement.innerHTML;
+    makeOperation(operator)
+}
 
 
 // Event Listneres
-buttonPlus.addEventListener('click', onButtonPlusClick);
-buttonMinus.addEventListener('click', onButtonMinusClick);
-buttonMultiply.addEventListener('click', onButtonMultiplyClick);
-buttonDevide.addEventListener('click', onButtonDevideClick);
+buttonPlus.addEventListener('click', onOperationButtonClick);
+buttonMinus.addEventListener('click', onOperationButtonClick);
+buttonMultiply.addEventListener('click', onOperationButtonClick);
+buttonDevide.addEventListener('click', onOperationButtonClick);
 
 // it was function just to check if addEventListner works
 /* function checkOperator () {
     console.log('You clicked on an operator')
 } */
+let input_1 = document.getElementById('number1')
+let input_2 = document.getElementById('number2')
 
-function onButtonPlusClick() {
-    let input_1 = Number(document.getElementById('number1').value);
-    let input_2 = Number(document.getElementById('number2').value);
- 
-    let result = input_1 + input_2;
-    window.alert(`The result is ${result}`);
-}
-function onButtonMinusClick() {
-    let input_1 = Number(document.getElementById('number1').value);
-    let input_2 = Number(document.getElementById('number2').value);
- 
-    let result = input_1 - input_2;
-    window.alert(`The result is ${result}`);
-}
-function onButtonMultiplyClick() {
-    let input_1 = Number(document.getElementById('number1').value);
-    let input_2 = Number(document.getElementById('number2').value);
- 
-    let result = input_1 * input_2;
-    window.alert(`The result is ${result}`);
-}
-function onButtonDevideClick() {
-    let input_1 = Number(document.getElementById('number1').value);
-    let input_2 = Number(document.getElementById('number2').value);
- 
-    let result = input_1 / input_2;
-    window.alert(`The result is ${result}`);
+
+function makeOperation(operator) {
+    number1 = Number(input_1.value);
+    number2 = Number(input_2.value);
+
+    if (operator === '+'){
+        let result = number1 + number2;
+        window.alert(`The result is ${result}`);
+    } else if (operator === '-') {
+        let result = number1 - number2;
+        window.alert(`The result is ${result}`);
+    } else if (operator === '*') {
+        let result = number1 * number2;
+        window.alert(`The result is ${result}`);
+    } else {
+        let result = number1 / number2;
+        window.alert(`The result is ${result}`);
+    }
 }
