@@ -1,9 +1,12 @@
 
+
 // Variables
 const buttonPlus = document.getElementById('buttonPlus');
 const buttonMinus = document.getElementById('buttonMinus');
 const buttonMultiply = document.getElementById('buttonMultiply');
 const buttonDevide = document.getElementById('buttonDevide');
+
+let arrayOfButtons = [buttonPlus, buttonMinus, buttonMultiply, buttonDevide]
 
 // this function take event as argument and depend on it, makes decisions
 function onOperationButtonClick(eventObject) {
@@ -12,12 +15,15 @@ function onOperationButtonClick(eventObject) {
     makeOperation(operator)
 }
 
+function addCommonEventListener(i) {
+    arrayOfButtons[i].addEventListener('click', onOperationButtonClick);
+}
+
 
 // Event Listneres
-buttonPlus.addEventListener('click', onOperationButtonClick);
-buttonMinus.addEventListener('click', onOperationButtonClick);
-buttonMultiply.addEventListener('click', onOperationButtonClick);
-buttonDevide.addEventListener('click', onOperationButtonClick);
+for (let i = 0; i < arrayOfButtons.length; i++) {
+    addCommonEventListener(i)
+}
 
 // it was function just to check if addEventListner works
 /* function checkOperator () {
