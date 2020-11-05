@@ -1,0 +1,37 @@
+.section-hot li,
+.section-reality li {
+    padding: 10px;
+}
+
+.section-hot li:hover {
+    background-color: aquamarine;
+}
+
+.section-reality li:hover {
+    background-color: cadetblue;
+}
+
+li:hover a {
+    color: white;
+}
+
+h2 {
+    color: white;
+    padding: 10px;
+}
+
+.section-hot .header {
+    background-color: aquamarine;
+}
+
+.section-reality .header {
+    background-color: cadetblue;
+}
+
+.section-hot .footer {
+    color: green;
+}
+
+.section-reality .footer {
+    color: yellow;
+}

@@ -1,12 +1,13 @@
 
 
 // Variables
-const buttonPlus = document.getElementById('buttonPlus');
+/* const buttonPlus = document.getElementById('buttonPlus');
 const buttonMinus = document.getElementById('buttonMinus');
 const buttonMultiply = document.getElementById('buttonMultiply');
 const buttonDevide = document.getElementById('buttonDevide');
+ */
 
-let arrayOfButtons = [buttonPlus, buttonMinus, buttonMultiply, buttonDevide]
+let arrayOfButtons = document.getElementsByClassName('operation-button');
 
 // this function take event as argument and depend on it, makes decisions
 function onOperationButtonClick(eventObject) {
