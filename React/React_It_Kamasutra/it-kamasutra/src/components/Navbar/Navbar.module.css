@@ -8,6 +8,10 @@
     color: white;
   }
 
-  .item.active {
+  .item a.active {
     color: yellow;
+  }
+
+  .item a {
+    color: white;
   }
