@@ -1,0 +1,49 @@
+body {
+    display: grid;
+}
+
+.add-word-form{
+    display: grid;
+    grid-template-areas: 
+    "formImage header"
+    "formImage addWord"
+    "formImage addWordbtn";
+    grid-template-rows: 50px 150px 50px;
+    grid-template-columns: 400px 200px;
+    grid-gap: 1vw;
+    border: 2px black solid;
+    width: 600px;
+    height: 300px;
+    background-color:white;
+
+}
+
+.form-header {
+    grid-area: header;
+    text-align: left;
+}
+
+.form-image {
+    grid-area: formImage;
+}
+
+.form-image img {
+    width: 350px;
+    height: 300px
+}
+
+.add-word-form form {
+    grid-area: addWord;
+}
+
+.add-word-form input {
+    padding: 2px;
+    margin: 5px 5px;
+    width: 140px;
+}
+
+.btn-add-word {
+    grid-area: addWordbtn;
+    text-align: right;
+    width: 150px
+}
