@@ -18,9 +18,12 @@ const App = (props) => {
         {/* <Route exact path="/dialogs" component={Dialogs}/>
         <Route exact path="/profile" component={Profile}/> */}
 
-        <Route exact path="/dialogs" render={ () => <Dialogs dialogsData={props.dialogsData}
-         messagesData = {props.messagesData}/> }/>
-        <Route exact path="/profile" render={ ()  => <Profile postData = {props.postData} />}/>
+        <Route exact path="/dialogs"
+          render={ () => <Dialogs 
+            state={props.state.dialogsPage} /> }/>
+        <Route exact path="/profile" 
+          render={ ()  => <Profile 
+            state= {props.state.profilePage} />}/>
       </div>
     </div>
     </BrowserRouter>
