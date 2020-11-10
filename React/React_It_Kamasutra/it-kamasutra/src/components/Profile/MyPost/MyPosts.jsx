@@ -7,10 +7,12 @@ const MyPosts = (props) => {
     let postData = [
         {id: 1, post: 'Hi, how are you?', likesCount: 12},
         {id: 2, post: 'It\'s my first post', likesCount: 15},
-        {id: 3, post: 'Hi', likescount: 25},
-        {id: 4, post: 'Hi', likescount: 19},
-        {id: 5, post: 'Hi', likescount: 9},
+        {id: 3, post: 'Hi', likesCount: 25},
+        {id: 4, post: 'Hi', likesCount: 19},
+        {id: 5, post: 'Hi', likesCount: 9},
     ]
+
+    let postElements = postData.map(p => <Post message={p.post} like={p.likesCount} />)
 
     return (
     <div className={s.postsBlock}>
@@ -23,8 +25,7 @@ const MyPosts = (props) => {
           <button>Remove post</button>
         </div>
         <div className={s.posts}>
-            <Post message={postData[0].post} like={postData[0].likesCount} />
-            <Post message={postData[1].post} like={postData[1].likesCount} />
+            {postElements}
         </div>
     </div>
     );
