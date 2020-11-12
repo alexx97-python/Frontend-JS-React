@@ -5,15 +5,22 @@ import s from './../Dialogs.module.css';
 
 const Message = (props) => {
     let messageRef = React.createRef();
+
     const addMessage = () => {
-        let currentMes = messageRef.current.value;
-        alert(currentMes);
+        props.addMessage()
     }
+
+const onMessageChange = () => {
+    let text = messageRef.current.value;
+    props.updateNewMessageText(text);
+}
 
     return (
         <div className={s.message}>
             {props.message}
-            <p><textarea ref={messageRef}> </textarea></p>
+            <p><textarea onChange={onMessageChange}
+             ref={messageRef}
+             value={props.newMessageData}> </textarea></p>
             <p><button onClick={addMessage}> Answer </button></p>
         </div>
         );

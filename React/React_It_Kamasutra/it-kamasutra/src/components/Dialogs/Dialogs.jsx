@@ -1,3 +1,4 @@
+import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
@@ -5,9 +6,12 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let dialogItem = props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} /> )
+    let dialogItem = props.dialogsPage.dialogsData.map(d => <DialogItem name={d.name} id={d.id} /> )
 
-    let message = props.state.messagesData.map(m => <Message message={m.message}/>)
+    let message = props.dialogsPage.messagesData.map(m => <Message message={m.message}
+        newMessageData = {props.dialogsPage.newMessageData}
+        addMessage={props.addMessage}
+        updateNewMessageText={props.updateNewMessageText}/>)
 
     return (
         <div>
