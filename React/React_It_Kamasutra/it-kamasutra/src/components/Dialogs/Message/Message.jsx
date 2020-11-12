@@ -10,10 +10,10 @@ const Message = (props) => {
         props.addMessage()
     }
 
-const onMessageChange = () => {
-    let text = messageRef.current.value;
-    props.updateNewMessageText(text);
-}
+    const onMessageChange = () => {
+        let text = messageRef.current.value;
+        props.updateNewMessageText(text);
+    }
 
     return (
         <div className={s.message}>
