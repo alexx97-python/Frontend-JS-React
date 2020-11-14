@@ -10,8 +10,7 @@ const Dialogs = (props) => {
 
     let message = props.dialogsPage.messagesData.map(m => <Message message={m.message}
         newMessageData = {props.dialogsPage.newMessageData}
-        addMessage={props.addMessage}
-        updateNewMessageText={props.updateNewMessageText}/>)
+        dispatch = {props.dispatch}/>)
 
     return (
         <div>
