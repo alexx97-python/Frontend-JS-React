@@ -1,0 +1,9 @@
+.my-slider {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.my-slider #slide-image {
+    max-width: 80%;
+}
