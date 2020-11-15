@@ -19,22 +19,31 @@ var imageUrls = ['https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__34
 
 // functions definitions 
 function onShowPrevBtnClick() {
-    if (imageCount != 0) {imageCount--;
+    if (imageCount != 0) {
+        imageCount--;
         imgSlider.src = imageUrls[imageCount];
         console.log('Prev was clicked');
+        if (showNextBtn.disabled = true) {
+            showNextBtn.disabled = false;
+        }
 } else {
         console.log('it was the last number')
+        showPrevBtn.disabled = true;
     }
     
 }
 
 function onShowNextBtnClick() {
-    if (imageCount < imageUrls.length - 1) {
-        imageCount++;
+    imageCount++;
+    if (imageCount < imageUrls.length) {
         imgSlider.src = imageUrls[imageCount];
         console.log('Next was clicked');
+        if (showPrevBtn.disabled = true) {
+            showPrevBtn.disabled = false;
+        }
     } else {
         console.log('it was the last image.');
+        showNextBtn.disabled = true;
     }
     
 }
