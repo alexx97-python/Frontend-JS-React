@@ -1,6 +1,6 @@
 import { checkPropTypes } from 'prop-types';
 import React from 'react';
-import { addMessageActionCreator, onMessageChangeActionCreator } from '../../redux/state';
+import { addMessageActionCreator, onMessageChangeActionCreator } from '../../redux/dialogs-reducer';
 import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -32,8 +32,7 @@ const Dialogs = (props) => {
                     {message}
                     <p><textarea onChange={onMessageChange}
                     ref={messageRef}
-                    value={props.newMessageData}
-                    > </textarea></p>
+                    value={props.newMessageData}> </textarea></p>
                     <p><button onClick={addMessage}> Answer </button></p>
                 </div>
             </div>
