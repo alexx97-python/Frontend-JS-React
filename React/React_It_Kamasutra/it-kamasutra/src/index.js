@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state'
+import store from './redux/redux-store.js';
 
 let rerenderEntiretree = (state) => {
     ReactDOM.render(
     <React.StrictMode>
-      <App state={store.getState()}
+      <App state={state}
        dispatch = {store.dispatch.bind(store)}
+       store={store}
        />
     </React.StrictMode>,
     document.getElementById('root')
@@ -18,7 +19,10 @@ let rerenderEntiretree = (state) => {
 
 rerenderEntiretree(store.getState());
 
-store.subscribe(rerenderEntiretree);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntiretree(state);
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
