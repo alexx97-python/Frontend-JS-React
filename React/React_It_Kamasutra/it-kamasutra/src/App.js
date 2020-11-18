@@ -6,6 +6,7 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { checkPropTypes } from 'prop-types';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -19,13 +20,10 @@ const App = (props) => {
         {/* <Route exact path="/dialogs" component={Dialogs}/>
         <Route exact path="/profile" component={Profile}/> */}
         <Route exact path="/dialogs"
-          render={ () => <Dialogs 
-            dialogsPage={props.state.dialogsPage}
-            dispatch = {props.dispatch} />}/>
+          render={ () => <DialogsContainer
+            store={props.store} />}/>
         <Route exact path="/profile"
           render={ () => <Profile
-            profilePage= {props.state.profilePage}
-            dispatch={props.dispatch}
             store={props.store}
             />}/>
       </div>
