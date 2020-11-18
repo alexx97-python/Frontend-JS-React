@@ -2,7 +2,6 @@
 let showPrevBtn = document.getElementById('show-prev-btn');
 let showNextBtn = document.getElementById('show-next-btn');
 let imgSlider = document.getElementById('slide-image');
-console.log(imgSlider);
 let imageCount = 0;
 
 // subscribe to events
