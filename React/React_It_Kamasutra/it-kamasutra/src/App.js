@@ -22,10 +22,11 @@ const App = (props) => {
           render={ () => <Dialogs 
             dialogsPage={props.state.dialogsPage}
             dispatch = {props.dispatch} />}/>
-        <Route exact path="/profile" 
-          render={ ()  => <Profile 
-            profilePage= {props.state.profilePage} 
-            dispatch={props.dispatch} 
+        <Route exact path="/profile"
+          render={ () => <Profile
+            profilePage= {props.state.profilePage}
+            dispatch={props.dispatch}
+            store={props.store}
             />}/>
       </div>
     </div>
