@@ -1,0 +1,86 @@
+a {
+    text-decoration: none;
+}
+
+.footer-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.first-container {
+    color:white;
+    font-size: 14px;
+    background: #6478a1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.second-container {
+    background: #495978;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.third-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    font-family: Open Sans,sans-serif;;
+    font-size: 10px;
+    background-color:#2a364b;
+    height: 36px;
+    align-items: center;
+    color: white;
+}
+
+.copyright,
+.payments-system {
+    margin: 5%;
+}
+
+.payments-system i {
+    font-size: 30px;
+    padding: 5px;
+}
+
+.info-wrapper-links{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.info-wrapper-links a {
+    padding: 3px;
+}
+
+.info-wrapper-links a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.header p {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#call-me-back-btn {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 7px;
+    width: 175px;
+    padding: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.second-containe-btns button {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 3px;
+    width: 175px;
+    padding: 5px;
+    margin: 5px 5px 15px 5px;
+}
