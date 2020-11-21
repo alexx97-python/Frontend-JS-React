@@ -53,15 +53,15 @@ const Footer = (props) => {
                     <button>EnglishDom Words</button>
                 </div>
                 <div className="second-container-icons">
-                        <a>icon 1</a>
-                        <a>icon 2</a>
-                        <a>icon 3</a>
-                        <a>icon 4</a>
-                        <a>icon 5</a>
-                        <a>icon 6</a>
-                        <a>icon 7</a>
-                        <a>icon 8</a>
-                        <a>icon 9</a>
+                        <a><i class="fab fa-facebook"></i></a>
+                        <a><i class="fab fa-vk"></i></a>
+                        <a><i class="fab fa-telegram-plane"></i></a>
+                        <a><i class="fab fa-viber"></i></a>
+                        <a><i class="fab fa-tiktok"></i></a>
+                        <a><i class="fab fa-instagram"></i></a>
+                        <a><i class="fab fa-youtube"></i></a>
+                        <a><i class="fab fa-blogger-b"></i></a>
+                        <a><i class="fas fa-microphone-alt"></i></a>
                 </div>
             </div>
             <div className="third-container">

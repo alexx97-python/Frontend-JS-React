@@ -13,6 +13,7 @@ a {
     background: #6478a1;
     display: flex;
     justify-content: space-around;
+    padding: 10px;
 }
 
 .second-container {
@@ -75,6 +76,12 @@ a {
     margin-bottom: 15px;
 }
 
+#call-me-back-btn:hover {
+    background: white;
+    color: #6478a1;
+    cursor: pointer;
+}
+
 .second-containe-btns button {
     color: white;
     background: transparent;
@@ -83,4 +90,15 @@ a {
     width: 175px;
     padding: 5px;
     margin: 5px 5px 15px 5px;
+}
+
+.second-containe-btns button:hover {
+    background: white;
+    color:  #495978;
+    cursor: pointer;
+}
+
+.second-container-icons a {
+    margin: 5px;
+    font-size: 30px;
 }
