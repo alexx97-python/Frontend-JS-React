@@ -102,3 +102,7 @@ a {
     margin: 5px;
     font-size: 30px;
 }
+
+.agreement a:visited {
+    color: white;
+}

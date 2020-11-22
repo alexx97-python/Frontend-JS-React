@@ -69,9 +69,9 @@ const Footer = (props) => {
                     @2010-2020
                 </div>
                 <div className="agreement">
-                    <a >Договор-оферта</a> |
-                    <a >Политика конфиденциальности</a> |
-                    <a >Использование cookies</a>
+                    <a href="#">Договор-оферта</a> |
+                    <a href="#">Политика конфиденциальности</a> |
+                    <a href="#">Использование cookies</a>
                 </div>
                 <div className="payments-system">
                     <i className="fab fa-cc-visa"></i>
