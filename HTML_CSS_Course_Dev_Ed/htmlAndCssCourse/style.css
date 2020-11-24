@@ -1,0 +1,18 @@
+.text-section {
+    font-size: 1.5rem;
+}
+
+.text-section div p {
+    font-size: 1.5rem;
+}
+
+button {
+    margin: 5rem;
+    padding: 2rem 4rem;
+    background: none;
+    border: 0.3rem solid rgb(70, 29, 146);
+    color:  white;
+    font-size: 2.4rem;
+    border-radius: 1rem;
+    background-color: rgb(70, 29, 146);
+}
