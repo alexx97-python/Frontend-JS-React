@@ -10,6 +10,10 @@ html {
     font-size: 62.5%;
 }
 
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
 h1{
     font-size: 2rem;
 }
@@ -19,11 +23,12 @@ li, button, label, input, p {
 }
 
 h2{
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 h3{
     font-size: 3rem;
+    font-weight: normal;
 }
 
 h4,
@@ -34,6 +39,15 @@ h5 {
 a{
     color: white;
     text-decoration: none;
+}
+
+button {
+    padding: 2rem 6rem;
+    background: #4c6e97;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
 }
 
 /* Nav Section With Hero */
@@ -50,9 +64,10 @@ nav{
     padding: 2rem;
     min-height: 10vm;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-nav ul {
+nav ul{
     display: flex;
     flex: 1 1 40rem;
     align-items: center;
@@ -62,6 +77,38 @@ nav ul {
 
 #logo {
     flex: 2 1 40rem;
+    font-family: 'Pattaya', sans-serif;;
+    font-weight: normal;
+    font-size: 3rem;
 }
 
+.hero {
+    min-height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),url('./img/hero-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h3 {
+    padding: 5rem;
+}
+
+@media screen and (max-width: 932px) {
+    html {
+        font-size: 45%;
+    }
+    nav{
+        text-align: center;
+    }
+    #logo {
+        padding: 2rem;
+    }
+}
 
