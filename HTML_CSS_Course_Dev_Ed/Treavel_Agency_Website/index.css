@@ -1,0 +1,67 @@
+/* Global Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+li, button, label, input, p {
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 3rem;
+}
+
+h4,
+h5 {
+    font-size: 2.8rem;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+/* Nav Section With Hero */
+
+.main-head {
+    background: #131c27;
+    color: white;
+}
+
+nav{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    padding: 2rem;
+    min-height: 10vm;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    flex: 1 1 40rem;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+
+#logo {
+    flex: 2 1 40rem;
+}
+
+
