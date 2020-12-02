@@ -7,6 +7,8 @@ import Dialogs from './components/Dialogs/Dialogs';
 import { Route } from 'react-router-dom';
 import { checkPropTypes } from 'prop-types';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
+
 
 
 const App = (props) => {
@@ -19,12 +21,14 @@ const App = (props) => {
         {/* <Route exact path="/dialogs" component={Dialogs}/>
         <Route exact path="/profile" component={Profile}/> */}
         <Route exact path="/dialogs"
-          render={ () => <DialogsContainer
-            store={props.store} />}/>
+          render={ () => <DialogsContainer/>}/>
+
         <Route exact path="/profile"
-          render={ () => <Profile
-            store={props.store}
-            />}/>
+          render={ () => <Profile/>}/>
+
+        <Route exact path="/users"
+          render={ () => <UsersContainer/>}/>
+
       </div>
     </div>
   );
