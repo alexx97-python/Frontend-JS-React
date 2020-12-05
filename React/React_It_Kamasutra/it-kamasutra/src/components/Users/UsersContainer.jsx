@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unfollow } from '../../redux/users-reducer';
 import * as axios from "axios";
 import Users from "./Users";
-import styles from "./users.module.css";
 import Preloader from '../common/Preloader/Preloader';
 
 
