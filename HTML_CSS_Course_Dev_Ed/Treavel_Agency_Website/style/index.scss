@@ -1,4 +1,8 @@
+//Imports
 @import '_mixin';
+
+// Variables
+$linear-gradient : linear-gradient(rgba(0, 0, 0, 0.5), transparent);
 
 * {
     margin: 0;
@@ -46,7 +50,6 @@ button {
     background: #4c6e97;
     border: none;
     color: white;
-    font-size: 1.8rem;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 
@@ -64,19 +67,16 @@ button {
 }
 
 nav{
-    display: flex;
+    @include flex-container(row, space-around, center);
     width: 90%;
     margin: auto;
     padding: 2rem;
     min-height: 10vm;
-    align-items: center;
     flex-wrap: wrap;
 
     ul {
-        display: flex;
+        @include flex-container(row, space-around, center);
         flex: 1 1 40rem;
-        align-items: center;
-        justify-content: space-around;
         list-style: none;
     }
 
@@ -90,14 +90,10 @@ nav{
 
 .hero {
     min-height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),url('../img/hero-background.jpg');
-    @include img-center-cover;
-
+    background: $linear-gradient,url('../img/hero-background.jpg');
+    @include img-center-cover-norepeat;
+    @include flex-container(column, center, center);
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 
     h3{
@@ -106,9 +102,9 @@ nav{
 }
 
 #locations {
-    min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('../img/new-york-page.png');
-    @include img-center-cover;
+    min-height: 90vh;
+    background: $linear-gradient, url('../img/new-york-page.png');
+    @include img-center-cover-norepeat;
     align-items: center;
     position: relative;
     overflow: hidden;
@@ -162,14 +158,11 @@ nav{
 /* Benefits Section */
 
 .benefits-head {
+    @include flex-container(column, center, center);
     background: #343c44;
     padding: 3rem;
     min-height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     color: white;
-    text-align: center;
 
     h3 {
         padding: 1rem;
@@ -177,11 +170,10 @@ nav{
 }
 
 .cards {
+    @include flex-container(row, space-around, center);
     width: 90%;
     margin: auto;
-    display: flex;
     min-height: 70vh;
-    align-items: center;
     flex-wrap: wrap;
 
     img {
@@ -211,11 +203,9 @@ nav{
 
 #contact {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('../img/contact-mountain.png');
-    @include img-center-cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: $linear-gradient, url('../img/contact-mountain.png');
+    @include img-center-cover-norepeat;
+    @include flex-container(row, center, center);
 }
 
 .form-wrapper {
@@ -270,12 +260,11 @@ footer {
 }
 
 .footer-wrapper {
-    display: flex;
+    @include flex-container(row, space-around, center);
     padding: 2rem;
     min-height: 10vh;
     width: 90%;
     margin: auto;
-    align-items: center;
     flex-wrap: wrap;
 }
 

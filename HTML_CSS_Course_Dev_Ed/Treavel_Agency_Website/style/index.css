@@ -45,7 +45,6 @@ button {
   background: #4c6e97;
   border: none;
   color: white;
-  font-size: 1.8rem;
   cursor: pointer;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -68,13 +67,19 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 90%;
   margin: auto;
   padding: 2rem;
   min-height: 10vm;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -83,14 +88,18 @@ nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 40rem;
-          flex: 1 1 40rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40rem;
+          flex: 1 1 40rem;
   list-style: none;
 }
 
@@ -110,7 +119,6 @@ nav #logo {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,6 +132,7 @@ nav #logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: white;
   text-align: center;
 }
 
@@ -132,7 +141,7 @@ nav #logo {
 }
 
 #locations {
-  min-height: 100vh;
+  min-height: 90vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent)), url("../img/new-york-page.png");
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("../img/new-york-page.png");
   background-repeat: no-repeat;
@@ -209,9 +218,6 @@ nav #logo {
 
 /* Benefits Section */
 .benefits-head {
-  background: #343c44;
-  padding: 3rem;
-  min-height: 30vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -222,8 +228,13 @@ nav #logo {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #343c44;
+  padding: 3rem;
+  min-height: 30vh;
   color: white;
-  text-align: center;
 }
 
 .benefits-head h3 {
@@ -231,15 +242,21 @@ nav #logo {
 }
 
 .cards {
-  width: 90%;
-  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 70vh;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 90%;
+  margin: auto;
+  min-height: 70vh;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -280,12 +297,16 @@ nav #logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .form-wrapper {
@@ -353,13 +374,19 @@ footer ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 2rem;
   min-height: 10vh;
   width: 90%;
   margin: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
