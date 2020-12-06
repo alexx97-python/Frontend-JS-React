@@ -1,16 +1,14 @@
-/* Global Styles */
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: 0;
 }
 
 html {
     font-size: 62.5%;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -49,12 +47,11 @@ button {
     font-size: 1.8rem;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-}
 
-button:hover {
-    background:#1a2533;
+    &:hover{
+        background:#1a2533;
+    }
 }
-/* Nav Section With Hero */
 
 .main-head {
     background: #131c27;
@@ -72,26 +69,26 @@ nav{
     min-height: 10vm;
     align-items: center;
     flex-wrap: wrap;
-}
 
-nav ul{
-    display: flex;
-    flex: 1 1 40rem;
-    align-items: center;
-    justify-content: space-around;
-    list-style: none;
-}
+    ul {
+        display: flex;
+        flex: 1 1 40rem;
+        align-items: center;
+        justify-content: space-around;
+        list-style: none;
+    }
 
-#logo {
-    flex: 2 1 40rem;
-    font-family: 'Pattaya', sans-serif;;
-    font-weight: normal;
-    font-size: 3rem;
+    #logo {
+        flex: 2 1 40rem;
+        font-family: 'Pattaya', sans-serif;;
+        font-weight: normal;
+        font-size: 3rem;
+    }
 }
 
 .hero {
     min-height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),url('./img/hero-background.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),url('../img/hero-background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -101,59 +98,57 @@ nav ul{
     justify-content: center;
     align-items: center;
     text-align: center;
-}
 
-.hero h3 {
-    padding: 5rem;
+    h3{
+        padding: 5rem;
+    }
 }
-
-/* Benefits Section */
 
 #locations {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('./img/new-york-page.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('../img/new-york-page.png');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-}
 
-.locations-head {
-    width: 90%;
-    margin: 0 auto;
-    color: rgb(34, 32, 32);
-}
+    .locations-head {
+        width: 90%;
+        margin: 0 auto;
+        color: rgb(34, 32, 32);
 
-.locations-head h2 {
-    padding: 1rem 0rem;
-    text-decoration: underline;
-    text-decoration-thickness: 0.5rem;
-}
+        h2 {
+            padding: 1rem 0rem;
+            text-decoration: underline;
+            text-decoration-thickness: 0.5rem;
+        }
 
-.locations-head h3 {
-    padding: 4rem 0rem;
-    /* background: linear-gradient(#131c27, #663b34);
-    background-clip: text;
-    -webkit-text-fill-color: transparent; */
-}
+        h3 {
+            padding: 4rem 0rem;
+            /* background: linear-gradient(#131c27, #663b34);
+            background-clip: text;
+            -webkit-text-fill-color: transparent; */
+        }
 
-.cloud{
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    width: 80rem;
-    pointer-events: none;
-}
-.moving-cloud-1 {
-    animation: cloudAnimation 3s infinite alternate ease-in-out;
-}
-.moving-cloud-2 {
-    top: 10%;
-    z-index: -1;
-    opacity: 0.5;
-    animation: cloudAnimation 3.5s infinite alternate ease-in-out;
+        .cloud{
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            width: 80rem;
+            pointer-events: none;
+        }
+        .moving-cloud-1 {
+            animation: cloudAnimation 3s infinite alternate ease-in-out;
+        }
+        .moving-cloud-2 {
+            top: 10%;
+            z-index: -1;
+            opacity: 0.5;
+            animation: cloudAnimation 3.5s infinite alternate ease-in-out;
+        }
+    }
 }
 
 @keyframes cloudAnimation {
@@ -176,10 +171,10 @@ nav ul{
     justify-content: center;
     color: white;
     text-align: center;
-}
 
-.benefits-head h3 {
-    padding: 1rem;
+    h3 {
+        padding: 1rem;
+    }
 }
 
 .cards {
@@ -189,6 +184,11 @@ nav ul{
     min-height: 70vh;
     align-items: center;
     flex-wrap: wrap;
+
+    img {
+        max-width: 15%;
+        margin: 2rem;
+    }
 }
 
 .card {
@@ -197,28 +197,22 @@ nav ul{
     min-height: 40vh;
     margin: 2rem 5rem;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
-}
+    
+    .card-icon {
+        background: #1a2533;
+    }
 
-.card h4,
-.card p {
-    padding: 1rem;
+    h4, p {
+        padding: 1rem;
     line-height: 1.8;
-}
-
-.cards img {
-    max-width: 15%;
-    margin: 2rem;
-}
-
-.card-icon {
-    background: #1a2533;
+    }
 }
 
 /* Contact From */
 
 #contact {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('./img/contact-mountain.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url('../img/contact-mountain.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -232,6 +226,22 @@ nav ul{
     width: 60%;
     color: white;
     border-radius: 20px;
+
+    label {
+        margin: 0rem 3rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 2rem;
+        margin-top: 8rem;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    input {
+        padding: 1rem 3rem;
+    }
 }
 
 .form-head {
@@ -245,25 +255,21 @@ nav ul{
     text-align: center;
 }
 
-.form-wrapper label {
-    margin: 0rem 3rem;
-}
-
-.form-wrapper button {
-    width: 100%;
-    padding: 2rem;
-    margin-top: 8rem;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-.from-wrapper input {
-    padding: 1rem 3rem;
-}
-
 footer {
     color:white;
     background: #1a2533;
+
+    h5 {
+        flex: 1 1 40rem;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        flex: 1 1 40rem;
+        align-items: center;
+    }
 }
 
 .footer-wrapper {
@@ -275,19 +281,6 @@ footer {
     align-items: center;
     flex-wrap: wrap;
 }
-
-footer h5 {
-    flex: 1 1 40rem;
-}
-
-footer ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    flex: 1 1 40rem;
-    align-items: center;
-}
-
 
 /* Media Query */
 @media screen and (max-width: 932px) {
@@ -315,10 +308,9 @@ footer ul {
     }
     footer{
         text-align: center;
-    }
-    footer h5 {
-        padding-bottom: 3rem;
-    }
 
+        h5 {
+            padding-bottom: 3rem;
+        }
+    }
 }
-
