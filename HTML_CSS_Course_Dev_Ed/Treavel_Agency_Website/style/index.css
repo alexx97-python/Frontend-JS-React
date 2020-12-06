@@ -135,11 +135,9 @@ nav #logo {
   min-height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent)), url("../img/new-york-page.png");
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("../img/new-york-page.png");
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -276,9 +274,9 @@ nav #logo {
   min-height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent)), url("../img/contact-mountain.png");
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("../img/contact-mountain.png");
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
