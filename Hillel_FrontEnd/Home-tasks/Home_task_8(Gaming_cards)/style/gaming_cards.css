@@ -1,0 +1,63 @@
+#flex-cards {
+  font-family: 'Nerko One', cursive;
+  font-size: 1.3rem;
+  color: #353c4d;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1.5rem;
+  background: #55aa55;
+}
+
+#flex-cards .card {
+  padding: 4px;
+  background: white;
+  min-width: 5rem;
+  min-height: 7.5rem;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#flex-cards .card :nth-child(1) img {
+  height: 1rem;
+  width: 1rem;
+}
+
+#flex-cards .card :nth-child(2) {
+  width: 100%;
+  margin-left: 1rem;
+}
+
+#flex-cards .card :nth-child(2) img {
+  height: 3rem;
+}
+
+#flex-cards .card :nth-child(3) {
+  text-align: right;
+}
+
+#flex-cards .card :nth-child(3) img {
+  height: 1rem;
+  width: 1rem;
+}
+/*# sourceMappingURL=gaming_cards.css.map */

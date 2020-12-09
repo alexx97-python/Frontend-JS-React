@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home task 1</title>
+</head>
+<body>
+<script>
+// Formulas for calculating the volume of a cylinder: V = pr^2h;
+
+let r = +prompt('Please, enter the radius:', ''); // radius of a cylinder
+let h = +prompt('Please, enter the height:', ''); // heigh of a cilinder
+let S = Math.PI * r**2; // base area
+let V = S * h; // the volume of a cilinder
+
+document.write('**************');
+document.write('</br>');
+document.write(`Обьем цилиндра с площадью основы ${S}, радиусом ${r} и высотой ${h} равен:`);
+document.write('</br>');
+document.write('--------------------');
+document.write('</br>');
+document.write(`V = ${V}`);
+document.write('</br>');
+document.write('-------------------');
+document.write('</br>');
+document.write('end.');
+
+</script>
+</body>
+</html>

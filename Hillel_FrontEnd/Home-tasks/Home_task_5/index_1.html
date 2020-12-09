@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5.1</title>
+</head>
+<body>
+
+<script>
+
+console.log(f());
+console.log(f(5,9));
+console.log(f(5,9, function(x){return `The result of sum is ${x}`}));
+console.log(f(4,2, function(x){return `The result of sum is ${x}`}));
+console.log(f('Hey ','mate', function(x){return `The result of sum is ${x}`}));
+
+
+    function f (a=2, b=3, c) {
+        x = sum(a, b);
+        
+        if (typeof c === 'function'){
+            return c(x);
+        } else {
+            return x;
+        }
+        function sum (a, b) {
+            return a + b; 
+        }
+    }
+</script>
+</body>
+</html>

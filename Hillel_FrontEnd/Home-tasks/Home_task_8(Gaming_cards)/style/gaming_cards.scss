@@ -1,0 +1,49 @@
+
+$deckColor : #55aa55;
+$text-color : #353c4d;
+
+#flex-cards {
+    font-family: 'Nerko One', cursive;
+    font-size: 1.3rem;
+    color: $text-color;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    background: $deckColor;
+    .card {
+        padding: 4px;
+        background: white;
+        min-width: 5rem;
+        min-height: 7.5rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        :nth-child(1){
+            img{
+                height:1rem;
+                width: 1rem;
+            }
+        }
+        :nth-child(2){
+                width: 100%;
+                margin-left: 1rem;
+            img{
+                height: 3rem;
+            }
+            
+        }
+        :nth-child(3){
+            text-align: right;
+            img{
+                height:1rem;
+                width: 1rem;
+            }
+        }
+    }
+}

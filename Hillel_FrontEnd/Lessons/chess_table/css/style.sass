@@ -1,0 +1,38 @@
+$black--color: #353c4d
+$white--color: #f3f5f9
+
+html,body
+    font-family: 'Nerko One', cursive;
+    svg, img
+        height: 35px
+
+.board
+    border-collapse: collapse;
+    tr
+        &:nth-child(odd)
+            td
+                &:nth-child(even)
+                    background: $black--color
+                &:nth-child(odd)
+                    background: $white--color
+        &:nth-child(even)
+            td
+                &:nth-child(even)
+                    background: $white--color
+                &:nth-child(odd)
+                    background: $black--color
+        &:first-of-type, &:last-of-type
+            td
+                height: 25px
+                background: transparent!important
+                border: none
+
+    td
+        height: 50px;
+        width: 50px;
+        border: 1px solid $black--color
+        text-align: center
+        &:first-of-type, &:last-of-type
+            background: transparent!important
+            width: 25px
+            border: none

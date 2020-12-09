@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_1</title>
+</head>
+<body>
+<script>
+let sum = 0;
+let start = 2; // I started with 2 as 0 and 1 are not considered as plain numbers;
+let end = 250;
+let numbersArray = [] // this variable just to store all plain numbers
+let breakLine = '</br>';
+main: for (start; start <= end; start++){ 
+    if (start === 2) {
+        sum += start;
+        numbersArray.push(start);
+        continue main;
+    }
+    for(let i = 2; i < start; i++ ){
+        if (start % i === 0){
+            continue main;
+        }
+    }
+    numbersArray.push(start);
+    sum += start;
+}
+document.write(`The array of plain numbers ${numbersArray}`);
+document.write(breakLine);
+document.write(breakLine);
+document.write(`The sum is ${sum}`);
+
+</script>
+</body>
+</html>

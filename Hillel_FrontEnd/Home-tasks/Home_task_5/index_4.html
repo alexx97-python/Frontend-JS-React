@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5_4</title>
+</head>
+<body>
+<script>
+
+console.log(getMaxs(1, undefined, [1,2,3], [4, 5, 6], [7, 8, 9]));
+/* console.log(getMaxs(1, undefined, [-1,-2,-3], [4, 5, 6], [7, 8, 9]));
+console.log(getMaxs(1, undefined, [null, undefined, '1', '10',-1,-2,-3], [4, 5, 6], [7, 8, 9])); */
+
+function getMaxs(...args) {
+    let maxs = [];
+    for(let i=0; i < args.length; i++) {
+        if(Array.isArray(args[i])){
+            let max = getMaxOfArray(args[i]);
+            maxs.push(max);
+        }
+    }
+    return maxs.join(';');
+}
+
+function getMaxOfArray (arr) {
+    let max;
+    let i = 0;
+    do {  // this block looks for firtn element that is number
+        max = arr[i];
+        i++;
+    } while (typeof max !== 'number');
+
+    for (let i=0; i<arr.length; i++){
+        if(typeof arr[i] === 'number' && arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
+}
+/* 
+console.log(getMaxOfArray([1,2,3]));
+console.log(getMaxOfArray([-1,-2,-3]));
+console.log(getMaxOfArray([null,2,3]));
+console.log(getMaxOfArray([undefined,2,4,3]));
+console.log(getMaxOfArray(['fjdgnsd',2,4,3]));
+console.log(getMaxOfArray([4,'1',2,3]));
+ */
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_3</title>
+</head>
+<body>
+
+<script>
+let a, b, step;
+let numbers = [];
+let factorials = [];
+let sumOfNumbersFactorial = 0;
+let breakLine = '</br>';
+
+do {
+    a = +prompt('Please enter first number(a): ');
+} while (isNaN(a) || a == 0 );
+do {
+    b = +prompt('Please enter second number(b) => required condition(a < b): ');
+} while (isNaN(b) || b == 0 || a >= b);
+do {
+    step = +prompt('Please enter the step with which you want to iterate through numbers: ');
+} while (isNaN(step) || step == 0);
+
+for (let i = a; i <= b; i= i + step){
+    numbers.push(i);
+    let sum = 1;
+    for(let j = 1; j <= i; j++) {
+        sum *= j;
+    }
+    sumOfNumbersFactorial += sum;
+    factorials.push(sum);
+}
+
+
+document.write(`This is a=${a}, this is b=${b}, this is step=${step}`);
+document.write(breakLine);
+document.write(`This is array of numbers ${numbers}`);
+document.write(breakLine);
+document.write(`Array of factorials ${factorials}`);
+document.write(breakLine);
+document.write(`This is final sum of number's fuctorials: ${sumOfNumbersFactorial}`);
+</script>
+</body>
+</html>

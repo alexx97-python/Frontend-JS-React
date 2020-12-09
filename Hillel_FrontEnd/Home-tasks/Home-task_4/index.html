@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // Tasks_1
+    let lineAfterTask = '-----------------------'
+    console.log('Task 1 is started')
+    // creating arrays
+    A = createArrayWithRandomNum(10, 1, 10);
+    B = createArrayWithRandomNum(10, 1, 10);
+
+    console.log(`First array: ${A}`);
+    console.log(`Second array: ${B}`);
+
+    // checking for common elements
+    console.log(`The final list of unique duplicate elements ${findCommonElements(A, B)}`);
+    console.log(lineAfterTask);
+
+    // Task_2
+    console.log('Task 2 is started');
+    A = createArrayWithRandomNum(15, 1, 250);
+    console.log(A);
+    B = findPlainNumbers(A);
+    console.log(B);
+    console.log(`Min element: ${findMin(B)}`);
+    console.log(`Max element: ${findMax(B)}`);
+    console.log(lineAfterTask);
+
+
+
+    // Task 3
+    console.log('Task 3 is started');
+    A = createArrayWithRandomNum(15,1,20);
+    console.log(sortNumbers(A));
+    let temp = sortNumbers(A);
+    B = temp.slice(1,temp.length-1);
+    console.log(`Previous array without min and max elements ${B}`);
+    console.log(lineAfterTask);
+
+    // Task 4
+    console.log('Task 4 is started');
+    A = createArrayWithRandomNum(15,1,20);
+    console.log(A);
+    let max, min, maxIndex, minIndex;
+    findMinMaxIndex(A);
+    console.log(`Max: ${max} of index ${maxIndex}`);
+    console.log(`Min: ${min} of index ${minIndex}`);
+    A[maxIndex] = min;
+    A[minIndex] = max;
+    console.log(`Min and max were replaced: ${A}`);
+
+
+
+
+    // Functions
+
+    function findMin(arr) {
+        let min = arr[0];
+        for(let i=0; i<arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    function findMax(arr) {
+        let max = arr[0];
+        for(let i=0; i<arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    function findMinMaxIndex (arr) {
+        max = arr[0];
+        min = arr[0];
+        for(let i=0; i<arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i];
+                maxIndex = i;
+            }
+            if(arr[i] < min){
+                min = arr[i];
+                minIndex = i;
+            }
+        }
+    }
+
+    function sortNumbers(arr) {
+        return arr.sort(function(a,b){return a-b});
+    }
+
+    function findPlainNumbers(arr) {
+        let new_arr = [];
+        main: for(let count=0; count<arr.length; count++){
+            for (let i=2;i<arr[count];i++){
+                if (arr[count] < 2 ||
+                arr[count] % i === 0 ) {
+                    continue main;
+                }
+            }
+            if (!new_arr.includes(arr[count])){
+                new_arr.push(arr[count]);
+            }
+        }
+        return new_arr;
+    }
+
+    function findCommonElements(arr_1, arr_2) {
+        let duplicated = [];
+        for (let i=0;i<arr_1.length;i++) {
+            if (arr_1.includes(arr_2[i],0)){
+                console.log(`This element is duplicated: ${arr_2[i]}`);
+                if (duplicated.includes(arr_2[i],0)){
+                    console.log(`This one is already in the list`);
+                } else {
+                    duplicated.push(arr_2[i]);
+                }
+            }
+        }
+        return duplicated;
+    }
+
+    function createArrayWithRandomNum(n, min, max) { // returns list with random numbers, n - length of array
+        let arr = [];
+        for (let i=0;i<n;i++) {
+            arr.push(random(min,max));
+        }
+        return arr;
+    }
+
+    function random(min, max) { // generates random number between entered 'min' and 'max'
+        const num = Math.floor(Math.random() * (max - min + 1)) + min;
+        return num;
+    }
+
+</script>
+</body>
+</html>

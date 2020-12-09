@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home task 2</title>
+</head>
+<body>
+<script>
+let operator_name = prompt("Please, enter the operator you want to use ('add','sub','mult','div'):");
+let number_1, number_2;
+let operator, result;
+
+if (operator_name === 'add' ||
+ operator_name === 'sub' ||
+ operator_name === 'mult' ||
+ operator_name === 'div') {
+	number_1 = +prompt("Please, enter the first number: ");
+	number_2 = +prompt("Please, enter the second number: ");
+	
+ } else {
+	operator_name = prompt("Please, enter the operator you want to use ('add','sub','mult','div'):");
+ }
+
+switch(operator_name) {
+	case 'add':
+		operator = '+';
+		result = number_1 + number_2;
+		break;
+	case 'sub':
+		operator = '-';
+		result = number_1 - number_2;
+		break;
+	case 'mult':
+		operator = '*';
+		result = number_1 * number_2;
+		break;
+	case 'div':
+		operator = '/';
+		result = number_1 / number_2;
+	default:
+		console.log('Operation is not defined')
+}
+
+window.alert(`${number_1} ${operator} ${number_2} = ${result}`);
+
+
+</script>
+</body>
+</html>
