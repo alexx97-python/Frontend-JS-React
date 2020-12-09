@@ -1,0 +1,56 @@
+@import '_mixin';
+html, body {
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 67.5%;
+    height: 700px;
+}
+
+.bar{
+    background-color: rgba(227,231,237,.9);
+    color: rgb(36, 76, 142);
+    font-weight: 700;
+    box-sizing: border-box;
+    line-height: 28px;
+    font-size: 1.25rem;
+    padding: 5px;
+    .bar-info{
+        margin: 0 auto;
+        width: 90%;
+        @include flex-container(row, space-between,center);
+        flex-wrap: nowrap;
+        a {
+            padding: 5px 10px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            &:hover {
+                background: white;
+                border-radius: 3px
+            }
+            &:focus {
+                color: white;
+                background:  rgb(36, 76, 142);
+            }
+        }
+        button {
+            font-size: 1.5rem;
+            background: rgb(78, 212, 1);
+            padding: 3px 10px;
+            border-radius: 40px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            &:hover {
+                background: rgb(72, 247, 3);
+            }
+        }
+        .contacts-wrapper{
+            display: flex;
+            font-size: 1.5rem;
+            }
+    }
+}
+
