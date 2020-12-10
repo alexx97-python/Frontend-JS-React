@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks 9.1 9.2 9.3 </title>
+</head>
+<body>
+
+<script>
+
+// Task 1
+let inner_obj = {
+    x: 10,
+    y: 20,
+    inner: {x: 20, z: 30},
+    foo2: {k: 23, p : 13}
+}
+
+function combineObjects(obj) {
+    let finalObject = {};
+    for (let key in obj) {
+        if (typeof obj[key] === 'object'){
+            finalObject = {...finalObject, ...combineObjects(obj[key])}
+        } else {
+            finalObject[key] = obj[key]
+        }
+    }
+    return finalObject;
+}
+
+console.log(combineObjects(inner_obj)); 
+</script>
+</body>
+</html>
