@@ -51,9 +51,10 @@ html {
   border-radius: 3px;
 }
 
-.bar .bar-info a:focus {
+.bar .bar-info a.active {
   color: white;
   background: #244c8e;
+  border-radius: 3px;
 }
 
 .bar .bar-info button {
@@ -75,5 +76,121 @@ html {
   display: -ms-flexbox;
   display: flex;
   font-size: 1.5rem;
+}
+
+main {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #004182), color-stop(25%, rgba(0, 65, 130, 0.5)), to(rgba(36, 53, 92, 0.6))), url("https://assets.ithillel.ua/images/covers/_transform_cover/Dark_FIS_4622.jpg");
+  background: linear-gradient(0deg, #004182 0, rgba(0, 65, 130, 0.5) 25%, rgba(36, 53, 92, 0.6)), url("https://assets.ithillel.ua/images/covers/_transform_cover/Dark_FIS_4622.jpg");
+  height: 150vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main .logo-small {
+  height: 56px;
+  width: 30px;
+}
+
+main .main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+  padding: 25.5px;
+}
+
+main .main-header .main-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+  width: 60%;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+main .main-header .main-navigation a {
+  text-decoration: none;
+  color: white;
+  padding: 4px 7px;
+}
+
+main .main-header .main-navigation a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+main .main-header .main-navigation #evo-logo {
+  background-size: cover;
+  border-image-repeat: stretch;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 64px;
+}
+
+main .intro-wrapper {
+  min-height: 80vh;
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .intro-wrapper .intro-heading {
+  width: 50%;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main .intro-wrapper .intro-heading b {
+  font-size: 54px;
+  font-weight: 400;
+  color: #48f703;
+}
+
+main .intro-wrapper .intro-heading .btn-green {
+  background: #4ed401;
+  font-size: 14px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 30px;
+  cursor: pointer;
+}
+
+main .intro-wrapper .intro-heading .btn-green:hover {
+  background: #48f703;
+}
+
+main .intro-wrapper .map-img {
+  width: 50%;
 }
 /*# sourceMappingURL=style.css.map */

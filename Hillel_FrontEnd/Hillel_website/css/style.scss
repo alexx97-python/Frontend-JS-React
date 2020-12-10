@@ -1,4 +1,10 @@
+// Imports
 @import '_mixin';
+
+//Variables 
+$poison-green: rgb(78, 212, 1);
+$poison-green-hover: rgb(72, 247, 3);
+
 html, body {
     margin: 0;
     padding: 0;
@@ -30,21 +36,22 @@ html{
                 background: white;
                 border-radius: 3px
             }
-            &:focus {
-                color: white;
-                background:  rgb(36, 76, 142);
-            }
+        }
+        a.active {
+            color: white;
+            background:  rgb(36, 76, 142);
+            border-radius: 3px;
         }
         button {
             font-size: 1.5rem;
-            background: rgb(78, 212, 1);
+            background: $poison-green;
             padding: 3px 10px;
             border-radius: 40px;
             border: none;
             color: white;
             cursor: pointer;
             &:hover {
-                background: rgb(72, 247, 3);
+                background: $poison-green-hover;
             }
         }
         .contacts-wrapper{
@@ -52,5 +59,85 @@ html{
             font-size: 1.5rem;
             }
     }
+}
+
+main {
+    background:
+        linear-gradient(0deg,#004182 0,rgba(0,65,130,.5) 25%,rgba(36,53,92,.6)),
+        url('https://assets.ithillel.ua/images/covers/_transform_cover/Dark_FIS_4622.jpg');
+    height: 150vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .logo-small {
+        height: 56px;
+        width: 30px;
+    }
+    .main-header {
+        @include flex-container(row, space-between,center);
+        width: 90%;
+        margin: 0 auto;
+        border-bottom: 1px solid white;
+        padding: 25.5px;
+        .main-navigation {
+            @include flex-container(row, space-between,center);
+            list-style-type: none;
+            width: 60%;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align:center;
+            a{
+                text-decoration: none;
+                color: white;
+                padding: 4px 7px;
+                &:hover{
+                    background: rgba(256,256,256,0.4);
+                    border-radius: 3px;
+                }
+            }
+            #evo-logo{
+                //background-image: url('https://assets.ithillel.ua/assets/school/images/menu_evo.svg');
+                background-size: cover;
+                border-image-repeat: stretch;
+                display: block;
+                box-sizing: border-box;
+                width: 64px;
+            }
+
+        }
+    }
+    .intro-wrapper {
+        min-height: 80vh;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        .intro-heading{
+            width: 50%;
+            display: block;
+            box-sizing: border-box;
+            b {
+                font-size: 54px;
+                font-weight: 400;
+                color: $poison-green-hover;
+            }
+            .btn-green {
+                background: $poison-green;
+                font-size: 14px;
+                color: white;
+                font-weight: 700;
+                text-align: center;
+                border: none;
+                border-radius: 8px;
+                padding: 16px 30px;
+                cursor: pointer;
+                &:hover {
+                    background: $poison-green-hover;
+                }
+            }
+        }
+        .map-img{
+            width:50%;
+        }
+    }
+
 }
 
