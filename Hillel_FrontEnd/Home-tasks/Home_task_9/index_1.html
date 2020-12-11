@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9.1</title>
+</head>
+<body>
+
+<script>
+    // Task 1
+let inner_obj = {
+    x: 10,
+    y: 20,
+    inner: {x: 20, z: 30, obj_2: {y:40, x:0}},
+    foo2: {k: 23, p : 13},
+    foo3: [1, 4, 6]
+}
+// First variant using spread operator
+function convert(obj) {
+    let finalObject = {};
+    for (let key in obj) {
+        if (typeof obj[key] === 'object' && !Array.isArray(obj[key])){
+            finalObject = {...finalObject, ...convert(obj[key])}
+        } else {
+            finalObject[key] = obj[key]
+        }
+    }
+    return finalObject;
+}
+
+// Second variany using Object.assign
+function convert_1(obj) {
+    let finalObject = {};
+    for (let key in obj) { // We can also open arrays but I decided to leave them untouched in this case
+        if (typeof obj[key] === 'object' && !Array.isArray(obj[key])){
+            Object.assign(finalObject, convert_1(obj[key]))
+        } else {
+            finalObject[key] = obj[key];
+        }
+    }
+    return finalObject;
+}
+
+console.log(convert(inner_obj));
+console.log('-------------------------');
+console.log(convert_1(inner_obj));
+</script>
+    
+</body>
+</html>

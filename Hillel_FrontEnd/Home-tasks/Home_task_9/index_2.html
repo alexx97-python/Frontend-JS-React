@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9.2</title>
+</head>
+<body>
+<script>
+// Task 2
+//Variant using spread operator
+function assignObjects(obj_1, obj_2){
+    return {...obj_1, ...obj_2}
+}
+
+// Variant using assign
+function assignObjects_1(obj_1, obj_2){
+    return Object.assign({}, obj_1, obj_2);
+}
+
+// Addition
+// combining two function we can make deep copy
+function assignObjects_2(obj_1, obj_2){
+    return Object.assign({}, convert(obj_1), convert(obj_2));
+}
+
+function convert(obj) {
+    let finalObject = {};
+    for (let key in obj) {
+        if (typeof obj[key] === 'object' && !Array.isArray(obj[key])){
+            finalObject = {...finalObject, ...convert(obj[key])}
+        } else {
+            finalObject[key] = obj[key]
+        }
+    }
+    return finalObject;
+}
+
+console.log(assignObjects({ x: 10, y: 20 }, { z: 30 }));
+console.log(assignObjects({ x: 10 }, { x: 20, y: 30 }));
+console.log('-------------------------------------');
+console.log(assignObjects_1({ x: 10, y: 20 }, { z: 30 }));
+console.log(assignObjects_1({ x: 10 }, { x: 20, y: 30 }));
+console.log('-------------------------------------');
+console.log(assignObjects_2({ x: 10, y: 20, z: {x:20, z:10} }, { z: 30, n: {z:40, y:50} }));
+</script>
+</body>
+</html>

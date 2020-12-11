@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9.3</title>
+</head>
+<body>
+
+<script>
+// Task 3
+function assignObjects(...objects){
+    let finalResult = {};
+
+    for (let key in objects) {
+        finalResult = {...finalResult,...objects[key]};
+        // OR 
+        //Object.assign(finalResult, objects[key])
+    }
+    return finalResult;
+}
+
+
+
+function assignObjects_1(...objects) {
+    return Object.assign({}, ...objects)
+}
+
+
+console.log(assignObjects({ x: 10, y: 20 }, { z: 30 }, { x: 20, y: 30 }, {n: 10, k: 50}));
+console.log('--------')
+console.log(assignObjects_1({ x: 10, y: 20 }, { z: 30 }, { x: 20, y: 30 }, {n: 10, k: 50}));
+</script>
+    
+</body>
+</html>
