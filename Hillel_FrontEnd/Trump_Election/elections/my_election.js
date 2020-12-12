@@ -7,6 +7,8 @@ let gender = ['man','woman'],
 let electors = generateRandomElectors();
 renderUsers(electors);
 
+getPresident(electors);
+
 function generateRandomElectors(n=10){
     let electors = []
     for(let i=0;i<n;i++){
@@ -48,13 +50,84 @@ function renderThead(params){
             return `<th>${param}</th>`
         })
         .join('');
-	return `<thead><tr>${ths}</tr></thead>`
+    return `<thead><tr>${ths}</tr></thead>`
 }
-
 
 
 function getRandomInteger (min=0, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max-min) + min);
+}
+
+function getPresident(electors) {
+    electors.forEach( (elector, index) => {
+        elector.push([]);
+            // check gender param
+        if (elector[0] === 'woman'){
+            elector[elector.length-1].push('clinton');
+        } else {
+            elector[elector.length-1].push('trump');
+        }
+            // check ethnicity param
+        if (elector[1] === 'white' ||
+            elector[1] === 'black' ||
+            elector[1] == 'latino') {
+                elector[elector.length-1].push('trump');
+            } else {
+                elector[elector.length-1].push('clinton');
+            }
+            // check age param
+        if (elector[2][0] == age[2][0]) {
+            elector[elector.length-1].push('trump');
+        } else {
+            elector[elector.length-1].push('clinton');
+        }
+
+            // check graduation parameter
+        if (elector[3] === 'college graduate') {
+            elector[elector.length-1].push('clinton');
+        } else {
+            elector[elector.length-1].push('trump');
+        }
+            // find out the choice of each selector and add specifi class to the row
+        let electorPresident = getElectorPresident(elector[elector.length-1]);
+        let currentTr = document.querySelector(`.electors tbody tr:nth-child(${index+1})`);
+        currentTr.classList.add(electorPresident);
+
+        elector.push(electorPresident);
+    })
+
+    let electorsPresident = electors
+        .map((elector) => {
+            return elector[elector.length-1];
+        })
+
+    let presidentName = getElectorPresident(electorsPresident);
+    let presidentImg = document.querySelector('.battle');
+    presidentImg.src = `images/${presidentName}.png`;
+    return presidentName;
+
+}
+
+function getElectorPresident(electorPresidents){	
+    let trumpVoices = electorPresidents
+        .filter(function(presidentName){
+            return presidentName == 'trump'
+        })
+        .length;
+
+    let clintonVoices = electorPresidents
+        .filter(function(presidentName){
+            return presidentName == 'clinton'
+        })
+        .length;
+
+    if(trumpVoices>clintonVoices){
+        return 'trump';
+    } else if(trumpVoices<clintonVoices){
+        return 'clinton';
+    } else if(trumpVoices == clintonVoices){
+        return 'other'
+    }
 }
