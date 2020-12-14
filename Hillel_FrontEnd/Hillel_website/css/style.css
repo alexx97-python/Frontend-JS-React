@@ -166,12 +166,16 @@ main .intro-wrapper .intro-heading {
   display: block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  padding-top: 50px;
 }
 
 main .intro-wrapper .intro-heading b {
   font-size: 54px;
   font-weight: 400;
   color: #48f703;
+  display: block;
+  border-bottom: 2px solid white;
+  padding: 30px 0;
 }
 
 main .intro-wrapper .intro-heading .btn-green {
@@ -184,6 +188,7 @@ main .intro-wrapper .intro-heading .btn-green {
   border-radius: 8px;
   padding: 16px 30px;
   cursor: pointer;
+  margin-top: 25px;
 }
 
 main .intro-wrapper .intro-heading .btn-green:hover {
@@ -192,5 +197,54 @@ main .intro-wrapper .intro-heading .btn-green:hover {
 
 main .intro-wrapper .map-img {
   width: 50%;
+}
+
+main .intro-bottom {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 0.5px solid white;
+}
+
+main .intro-bottom .stats-general-counter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .intro-bottom p.counter-num {
+  font-size: 6rem;
+  color: #4ed401;
+  font-weight: 400;
+  margin: 0;
+}
+
+main .intro-bottom span.plus-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 25px;
+  width: 25px;
+  font-size: 2rem;
+  background: #4ed401;
+  border-radius: 30px;
+  color: #004182;
 }
 /*# sourceMappingURL=style.css.map */

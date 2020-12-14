@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> Using innerHTML </h1>
+    <p id="demo"></p>
+
+    <script> document.getElementById('demo').innerHTML= 'Changed context' </script>
+
+<!-- Using this is convinient just for testing purposes-->
+    <h1> Using document.write </h1>
+
+    <script>document.write(5 + 6);</script>
+
+<!-- Using document.write() after an HTML document is loaded, will delete all existing HTML: -->
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My first paragraph.</p>
+
+<button type="button" onclick="document.write(5 + 6)">Try it</button>
+
+</body>
+</html>
+-->
+
+    <h1> Using window.alert </h1>
+
+
+    <script>
+        let number = prompt('Please, write your number below: ')
+        if (number == 0){
+            alert('0');
+        } 
+        else if (number > 0) {
+            alert('1');
+        } else {
+            alert('-1');
+        }
+
+        let result = (a + b) > 4?'Below':'Over';
+
+        let message = (login == 'Employee')?'Hello':
+        (login == 'Director')?'Greetings':
+        (login == '')?'No login': '';
+    </script>
+</body>
+</html> 

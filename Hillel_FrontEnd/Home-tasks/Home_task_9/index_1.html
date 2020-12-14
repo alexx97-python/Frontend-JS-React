@@ -23,7 +23,7 @@ function convert(obj) {
         if (typeof obj[key] === 'object' && !Array.isArray(obj[key])){
             finalObject = {...finalObject, ...convert(obj[key])}
         } else {
-            finalObject[key] = obj[key]
+            finalObject[key] = obj[key];
         }
     }
     return finalObject;

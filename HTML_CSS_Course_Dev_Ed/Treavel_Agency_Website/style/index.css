@@ -141,7 +141,7 @@ nav #logo {
 }
 
 #locations {
-  min-height: 90vh;
+  min-height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent)), url("../img/new-york-page.png");
   background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("../img/new-york-page.png");
   background-repeat: no-repeat;
@@ -161,6 +161,7 @@ nav #logo {
 }
 
 #locations .locations-head h2 {
+  margin-top: 20vh;
   padding: 1rem 0rem;
   text-decoration: underline;
   text-decoration-thickness: 0.5rem;
@@ -168,9 +169,10 @@ nav #logo {
 
 #locations .locations-head h3 {
   padding: 4rem 0rem;
-  /* background: linear-gradient(#131c27, #663b34);
-            background-clip: text;
-            -webkit-text-fill-color: transparent; */
+  background: -webkit-gradient(linear, left top, left bottom, from(#131c27), to(#663b34));
+  background: linear-gradient(#131c27, #663b34);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #locations .locations-head .cloud {
@@ -217,6 +219,10 @@ nav #logo {
 }
 
 /* Benefits Section */
+#benefits {
+  min-height: 90vh;
+}
+
 .benefits-head {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -239,6 +245,7 @@ nav #logo {
 
 .benefits-head h3 {
   padding: 1rem;
+  text-align: center;
 }
 
 .cards {
