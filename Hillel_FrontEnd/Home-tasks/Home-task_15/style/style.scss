@@ -1,6 +1,10 @@
 html{
     font-family: 'Quicksand', sans-serif;
 }
+p{
+    margin: 0;
+    padding: 0;
+}
 
 body{
     width: 90%;
@@ -8,6 +12,35 @@ body{
 }
 
 .good-category{
+    width: 60%;
+    margin: 0 auto;
     display: flex;
-    border-bottom: 1px solid black;
+    flex-direction: column;
+    border-bottom: 1px dashed rgb(104, 98, 98);
+    padding-bottom: 15px;
+}
+
+.goods-wraper{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.category-item{
+    width: 25%;
+    background: rgba($color: rgb(121, 131, 143), $alpha: .2);
+    font-size: 0.7rem;
+    padding: 15px;
+    span{
+        font-weight: bold;
+    }
+    img{
+        display: block;
+        width: 90%;
+        margin: 10% auto;
+        height: 50px;
+        width: 50px;
+    }
 }

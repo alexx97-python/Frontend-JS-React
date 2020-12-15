@@ -2,15 +2,59 @@ html {
   font-family: 'Quicksand', sans-serif;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   width: 90%;
   margin: 0 auto;
 }
 
 .good-category {
+  width: 60%;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 1px dashed #686262;
+  padding-bottom: 15px;
+}
+
+.goods-wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 90%;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.category-item {
+  width: 25%;
+  background: rgba(121, 131, 143, 0.2);
+  font-size: 0.7rem;
+  padding: 15px;
+}
+
+.category-item span {
+  font-weight: bold;
+}
+
+.category-item img {
+  display: block;
+  width: 90%;
+  margin: 10% auto;
+  height: 50px;
+  width: 50px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -59,12 +59,6 @@ let cosmeticsProducts = [
 	}
 ];
 
-/* allCategories = [kitchenProducts, devicesProducts, cosmeticsProducts];
-
-allCategories.forEach((arr) => {
-
-}) */
-
 let kitchen = {category: 'kitchen'};
 let devices = {category: 'devices'};
 let cosmetics = {category: 'cosmetics'};
@@ -108,21 +102,23 @@ function createCategoriesBlock (products) {
 }
 
 function createProductBlock(goods){
+    let categoryContainer = document.getElementById(`${goods[0].category}`);
+    let wrapper = document.createElement('div');
+    wrapper.classList.add('goods-wraper')
     goods.forEach((good) => {
-        let categoryContainer = document.getElementById(`${good.category}`);
         let div = document.createElement('div');
+        div.classList.add('category-item');
         div.innerHTML = (`
-                    <div class="good-box">
-                    <img src="./img/${good.category}/${good.type}.svg" style="width:40px; height:40px"/>
-                    <p> Name: ${good.type} </p>
-                    <p> Price: $${
+                    <img src="./img/${good.category}/${good.type}.svg"/>
+                    <p> Name: <span>${good.type.charAt(0).toUpperCase() + good.type.slice(1)} </span> </p>
+                    <p> Price: <span>$${
                     Array.isArray(good.price)
                     ? good.price.join('-')
                     : good.price
-                    } </p>
-                    </div>
+                    } </span></p>
         `);
-        categoryContainer.append(div);
+        wrapper.append(div);
+        categoryContainer.append(wrapper);
     })
     
 }
