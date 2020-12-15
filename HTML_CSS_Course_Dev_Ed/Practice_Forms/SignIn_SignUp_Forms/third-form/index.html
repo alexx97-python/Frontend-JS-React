@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | Form</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <section class="registration-form-wrapper">
+        <div class="container">
+            <h3>Registration Form</h3>
+            <div class="input-wrapper">
+                <div class="input-section">
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="first-name" placeholder="Johny">
+                </div>
+                <div class="input-section">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" name="first-name" placeholder="Nelson">
+                </div>
+            </div>
+            
+            <div class="input-wrapper">
+                <div class="input-section">
+                    <label for="birthday">Birthday</label>
+                    <input type="text" name="birthday" placeholder="11/04/1997">
+                </div>
+                <div class="input-section" id="radio-section">
+                    <label for="gender">Gender</label>
+                    <div>
+                        <input type="radio" name="gender"> <span>Male</span>
+                        <input type="radio" name="gender"> <span>Female</span>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="input-wrapper">
+                <div class="input-section">
+                    <label for="email">Email</label>
+                    <input type="email" name="first-name" >
+                </div>
+                <div class="input-section">
+                    <label for="phone-number">Phone Number</label>
+                    <input type="text" name="phone-number" >
+                </div>
+            </div>
+            
+            <div class="input-section" id="subject-section">
+                <label for="subjects">Subject</label>
+                <select name="subjects" id="subjects">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+            </div>
+            <button type="submit">
+                Submit
+            </button>
+        </div>
+    </section>
+
+</body>
+</html>
