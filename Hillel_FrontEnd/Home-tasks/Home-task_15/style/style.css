@@ -1,0 +1,16 @@
+html {
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.good-category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid black;
+}
+/*# sourceMappingURL=style.css.map */
