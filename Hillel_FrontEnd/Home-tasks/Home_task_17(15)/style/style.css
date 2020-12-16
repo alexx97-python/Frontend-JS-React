@@ -57,4 +57,30 @@ body {
   height: 50px;
   width: 50px;
 }
+
+.category-item .item-general-info {
+  border-bottom: 1px dashed black;
+  padding-bottom: 10px;
+}
+
+.devices-add-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cosmetics-add-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 10px;
+}
+
+.cosmetics-add-info .color {
+  height: 30px;
+  width: 30px;
+  border-radius: 35px;
+}
 /*# sourceMappingURL=style.css.map */

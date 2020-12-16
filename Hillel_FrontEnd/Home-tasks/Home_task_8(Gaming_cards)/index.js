@@ -17,7 +17,6 @@ function createTableWithCards(){
             }
         return cards.join('');
     })
-    console.log(cardsToDisplay.join(''))
 
     flexContainer.innerHTML = cardsToDisplay.join('')
 }

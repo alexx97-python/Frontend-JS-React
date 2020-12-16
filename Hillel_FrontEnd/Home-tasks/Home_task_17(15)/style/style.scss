@@ -43,4 +43,23 @@ body{
         height: 50px;
         width: 50px;
     }
+    .item-general-info{
+        border-bottom: 1px dashed black;
+        padding-bottom: 10px;
+    }
+}
+
+.devices-add-info{
+    display: flex;
+}
+
+.cosmetics-add-info{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    .color{
+        height: 30px;
+        width: 30px;
+        border-radius: 35px;
+    }
 }

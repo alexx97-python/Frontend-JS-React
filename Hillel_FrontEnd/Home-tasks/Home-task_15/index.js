@@ -59,10 +59,12 @@ let cosmeticsProducts = [
 	}
 ];
 
+// Creating prototype objects
 let kitchen = {category: 'kitchen'};
 let devices = {category: 'devices'};
 let cosmetics = {category: 'cosmetics'};
 
+// Adding prototype to relative objects
 let newKitchen = kitchenProducts.map((element) => {
     let good = Object.create(kitchen);
     good.type = element['type'];
@@ -86,11 +88,14 @@ let newCosmetics = cosmeticsProducts.map((element) => {
 
 let productCards = [newKitchen, newDevices, newCosmetics];
 
+
 productCards.forEach((arr) => {
     createCategoriesBlock(arr);
     createProductBlock(arr);
 });
 
+
+// Creates block for each category
 function createCategoriesBlock (products) {
     let categoryContainer = document.createElement('div');
     categoryContainer.classList.add('good-category');
@@ -101,6 +106,7 @@ function createCategoriesBlock (products) {
     body.append(categoryContainer);
 }
 
+// Create a block for each product of category and add it inside the block of relative category
 function createProductBlock(goods){
     let categoryContainer = document.getElementById(`${goods[0].category}`);
     let wrapper = document.createElement('div');
