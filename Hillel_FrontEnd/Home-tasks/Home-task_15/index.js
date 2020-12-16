@@ -85,7 +85,7 @@ let newCosmetics = cosmeticsProducts.map((element) => {
     good.price = element['price'];
     return good;
 });
-
+// Declaring array with new objects
 let productCards = [newKitchen, newDevices, newCosmetics];
 
 
@@ -101,7 +101,7 @@ function createCategoriesBlock (products) {
     categoryContainer.classList.add('good-category');
     categoryContainer.id = products[0].category;
     let header = document.createElement('h3');
-    header.innerHTML = `Category ${products[0].category}`;
+    header.innerHTML = `Category: ${products[0].category}`;
     categoryContainer.append(header);
     body.append(categoryContainer);
 }

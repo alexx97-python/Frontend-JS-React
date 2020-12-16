@@ -166,6 +166,7 @@ function renderKitchenIngredients() {
 	: `<div class="${this.category}-add-info"></div>`
 }
 
+// Callbacks to add as render method ob prototype
 function renderDevicesBrands() {
 	
 		return (this.brands)
@@ -231,7 +232,7 @@ function createCategoriesBlock (products) {
     categoryContainer.classList.add('good-category');
     categoryContainer.id = products[0].category;
     let header = document.createElement('h3');
-    header.innerHTML = `Category ${products[0].category}`;
+    header.innerHTML = `Category: ${products[0].category}`;
     categoryContainer.append(header);
     body.append(categoryContainer);
 }
@@ -246,18 +247,17 @@ function createProductBlock(goods){
         div.classList.add('category-item');
 		div.innerHTML = (`
 					<div class="item-general-info">
-                    <img src="./img/${good.category}/${good.type}.svg"/>
-                    <p> Name: <span>${good.type.charAt(0).toUpperCase() + good.type.slice(1)} </span> </p>
-                    <p> Price: <span>$${
-                    Array.isArray(good.price)
-                    ? good.price.join('-')
-                    : good.price
-					} </span></p>
+						<img src="./img/${good.category}/${good.type}.svg"/>
+						<p> Name: <span>${good.type.charAt(0).toUpperCase() + good.type.slice(1)} </span> </p>
+						<p> Price: <span>$${
+						Array.isArray(good.price)
+						? good.price.join('-')
+						: good.price
+						} </span></p>
 					</div>
 					${good.render()}
 		`);
         wrapper.append(div);
         categoryContainer.append(wrapper);
     })
-    
 }

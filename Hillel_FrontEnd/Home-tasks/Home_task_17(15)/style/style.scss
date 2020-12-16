@@ -12,11 +12,11 @@ body{
 }
 
 .good-category{
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px dashed rgb(104, 98, 98);
+    border-bottom: 2px dashed rgb(150, 139, 139);
     padding-bottom: 15px;
 }
 
@@ -44,7 +44,7 @@ body{
         width: 50px;
     }
     .item-general-info{
-        border-bottom: 1px dashed black;
+        border-bottom: 2px dashed black;
         padding-bottom: 10px;
     }
 }

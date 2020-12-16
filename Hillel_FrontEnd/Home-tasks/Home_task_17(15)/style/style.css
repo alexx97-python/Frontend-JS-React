@@ -13,7 +13,7 @@ body {
 }
 
 .good-category {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,7 +22,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-bottom: 1px dashed #686262;
+  border-bottom: 2px dashed #968b8b;
   padding-bottom: 15px;
 }
 
@@ -59,7 +59,7 @@ body {
 }
 
 .category-item .item-general-info {
-  border-bottom: 1px dashed black;
+  border-bottom: 2px dashed black;
   padding-bottom: 10px;
 }
 
