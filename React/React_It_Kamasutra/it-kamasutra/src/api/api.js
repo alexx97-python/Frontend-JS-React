@@ -29,7 +29,15 @@ export const usersAPI = {
         return instance
             .post(`follow/` + userId);
     }
-} 
+}
+
+
+export const authAPI = {
+    getAuthData () {
+        return instance
+            .get('auth/me/');
+    }
+}
 
 /* export const getUsers = (currentPage=1, pageSize=10) => {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
