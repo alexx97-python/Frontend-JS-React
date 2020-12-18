@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unfollow, toggleIsFollowingProgress } from '../../redux/users-reducer';
+import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unfollow, toggleIsFollowingProgress, getUsersThunkCreator } from '../../redux/users-reducer';
 import Users from "./Users";
 import Preloader from '../common/Preloader/Preloader';
 import { getUsers} from '../../api/api';
@@ -10,17 +10,19 @@ class UsersContainer extends React.Component {
     constructor(props) {
       super(props);
     }
-  
+
     componentDidMount(){
       // this method is executed just after component is rendered;
       // good for making server's requests
-      this.props.toggleIsFetching(true); // activate preloader before ajax request
+
+      this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+      /* this.props.toggleIsFetching(true); // activate preloader before ajax request
       getUsers(this.props.currentPage, this.props.pageSize)
           .then((data) => {
             this.props.toggleIsFetching(false); // disactivate preloader
             this.props.setUsers(data.items);
             this.props.setTotalUsersCount(data.totalCount)
-          });
+          }); */
     }
 
     onPageCnahged = (pageNumber) => {
@@ -93,6 +95,7 @@ export default connect (mapStateToProps, {
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
-    toggleIsFollowingProgress
+    toggleIsFollowingProgress,
+    getUsersThunkCreator
 }) (UsersContainer);
 

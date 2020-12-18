@@ -1,3 +1,4 @@
+import { getUsers } from "../api/api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -91,5 +92,19 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, totalCount});
 export const toggleIsFetching = (isFetching) => ({type:TOGGLE_IS_FETCHING, isFetching});
 export const toggleIsFollowingProgress = (isFetching, userId) => ({type:TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
+
+// thunks
+export const getUsersThunkCreator = (currentPage, pageSize ) => {
+
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true)); // activate preloader before ajax request
+        getUsers(currentPage, pageSize)
+            .then((data) => {
+            dispatch(toggleIsFetching(false)); // disactivate preloader
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+        });
+    }
+}
 
 export default usersReducer;
