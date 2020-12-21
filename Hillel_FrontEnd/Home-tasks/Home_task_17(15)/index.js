@@ -195,7 +195,6 @@ let newKitchen = kitchenProducts.map((element) => {
     good.type = element['type'];
 	good.price = element['price'];
 	good.ingredients = element['ingredients'];
-	console.log(good);
     return good
 });
 
@@ -204,7 +203,6 @@ let newDevices = devicesProducts.map((element) => {
     good.type = element['type'];
 	good.price = element['price'];
 	good.brands = element['brands'];
-	console.log(good);
     return good;
 });
 
@@ -213,7 +211,6 @@ let newCosmetics = cosmeticsProducts.map((element) => {
     good.type = element['type'];
 	good.price = element['price'];
 	good.colors = element['colors'];
-	console.log(good);
     return good;
 });
 

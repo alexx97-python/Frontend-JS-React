@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task-18</title>
+</head>
+<body>
+<script>
+    class SuperMath {
+        check (obj) {
+            let toCalc = `${obj.X}${obj.znak}${obj.Y}`;
+            if(confirm(`Do you want to get result of calculating ${toCalc}`)) {
+                alert(eval(`${toCalc}`));
+                return eval(`${toCalc}`);
+            }
+            this.input();
+        }
+
+        input(){
+            let X = +prompt('Please, provide valid number as X variable: ');
+            let Y = +prompt('Please, provide valid number as Y variable: ');
+            let znak;
+            do{
+                znak = prompt('Please, choose operator and write it down (+,-,/,*,%)');
+            } while (!['+','-','/','*','%'].includes(znak));
+            
+            this.check({X,Y,znak})
+        }
+    }
+obj = { X:12, Y:3, znak: "/"};
+p = new SuperMath();
+p.check(obj);
+
+
+</script>
+</body>
+</html>
