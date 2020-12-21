@@ -10,6 +10,8 @@ a{
 .wrapper__header{ 
     color: white;
     font-size: 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
     .header__top__wrapper{
         background:#252628;
     }
@@ -23,29 +25,39 @@ a{
     width: 70%;
     margin: 0 auto;
     align-items: center;
-    min-height: 10vh;
+    min-height: 5vh;
     flex-wrap: wrap;
+    .language__selector{
+        width: 20%;
+        a{
+            padding: 0.5rem;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
 
     .header__img{
         width: 60%;
         text-align: center;
+        img{
+            height: 50px;
+        }
     }
 
-    .language__selector,
     .header__profile {
         width: 20%;
+        display: flex;
         button{
             height: 32px;
             width: 32px;
         }
     }
-    .header__profile{
-        display: flex;
-    }
+
 }
 
 .header__menue{
-    min-height: 7vh;
+    min-height: 3vh;
     display: flex;
     align-items: center;
     a{
