@@ -1,3 +1,6 @@
+//Imports
+@import '../../general_style/general_style.scss';
+// Main Component
 .main-component{
     min-height: 75vh;
     background: url('https://assets3.insales.ru/assets/1/1090/1483842/1608218146/index-promo-img.jpg');
@@ -6,8 +9,7 @@
     position: relative;
     .links{
         width: 40%;
-        display: flex;
-        justify-content: space-between;
+        @include flexBox(center, space-between, nowrap);
         position: absolute;
         bottom: 50px;
         right: 35%;
@@ -19,9 +21,7 @@
         border-radius: 10px;
         padding: 1rem;
         text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexBox(center, center, nowrap);
         cursor: pointer;
         &:hover{
             background: orange;
@@ -30,5 +30,26 @@
             font-size: 1.5rem;
         }
         }
+    }
+}
+
+// Benefits Component
+
+.benefits{
+    background: #eff4f9;
+    padding: 10px 10px;
+}
+
+.benefits__wrapper{
+    width: 70%;
+    margin: 0 auto;
+    @include flexBox(center, space-between, nowrap);
+    img{
+        padding: 0 1rem;
+    }
+    .benefits__delivery,
+    .benefits__brands{
+        width:50%;
+        @include flexBox(center, center, nowrap);
     }
 }

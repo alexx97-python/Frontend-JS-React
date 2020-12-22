@@ -1,9 +1,11 @@
 import React from 'react';
+import Benefits from './Benefits';
 import './style/main_component.scss';
 
 
 const MainComponent = (props) =>{
     return (
+        <>
         <div className="main-component">
             <div className="links">
                 <div className="link">
@@ -14,6 +16,8 @@ const MainComponent = (props) =>{
                 </div>
             </div>
         </div>
+        <Benefits />
+        </>
     )
 }
 

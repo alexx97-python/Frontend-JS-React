@@ -1,0 +1,96 @@
+.main-component {
+  min-height: 75vh;
+  background: url("https://assets3.insales.ru/assets/1/1090/1483842/1608218146/index-promo-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.main-component .links {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  position: absolute;
+  bottom: 50px;
+  right: 35%;
+}
+
+.main-component .links .link {
+  height: 5rem;
+  width: 20rem;
+  background: #252628;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  cursor: pointer;
+}
+
+.main-component .links .link:hover {
+  background: orange;
+}
+
+.main-component .links .link a {
+  font-size: 1.5rem;
+}
+
+.benefits {
+  background: #eff4f9;
+  padding: 10px 10px;
+}
+
+.benefits__wrapper {
+  width: 70%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.benefits__wrapper img {
+  padding: 0 1rem;
+}
+
+.benefits__wrapper .benefits__delivery,
+.benefits__wrapper .benefits__brands {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+/*# sourceMappingURL=main_component.css.map */
