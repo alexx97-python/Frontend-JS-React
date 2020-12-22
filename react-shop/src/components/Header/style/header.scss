@@ -1,3 +1,5 @@
+@import '../../general_style/general_style.scss';
+
 html{
     font-size: 62.5%;
 }
@@ -28,7 +30,7 @@ a{
     min-height: 5vh;
     flex-wrap: wrap;
     .language__selector{
-        width: 20%;
+        width: 10%;
         a{
             padding: 0.5rem;
             &:hover{
@@ -46,14 +48,39 @@ a{
     }
 
     .header__profile {
-        width: 20%;
-        display: flex;
+        width: 30%;
+        @include flexBox(row, center, space-beetwen, wrap);
+        div{
+            margin-right: 10px;
+        }
         button{
             height: 32px;
-            width: 32px;
         }
     }
+}
 
+.header__search{
+    padding: 5px 10px;
+    height: 34px;
+    position: relative;
+    width: 40%;
+    margin-right: 30px !important;
+    input{
+        width: 100%;
+        border: none;
+        border-radius: 20px;
+        color: #323437;
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+    button{
+        position:absolute;
+        background: transparent;
+        border: none;
+        bottom: 10%;
+        left: 90%;
+    }
+    
 }
 
 .header__menue{

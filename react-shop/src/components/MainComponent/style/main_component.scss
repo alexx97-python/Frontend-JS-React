@@ -9,7 +9,7 @@
     position: relative;
     .links{
         width: 40%;
-        @include flexBox(center, space-between, nowrap);
+        @include flexBox(row, center, space-between, nowrap);
         position: absolute;
         bottom: 50px;
         right: 35%;
@@ -21,7 +21,7 @@
         border-radius: 10px;
         padding: 1rem;
         text-align: center;
-        @include flexBox(center, center, nowrap);
+        @include flexBox(row, center, center, nowrap);
         cursor: pointer;
         &:hover{
             background: orange;
@@ -43,13 +43,13 @@
 .benefits__wrapper{
     width: 70%;
     margin: 0 auto;
-    @include flexBox(center, space-between, nowrap);
+    @include flexBox(row, center, space-between, nowrap);
     img{
         padding: 0 1rem;
     }
     .benefits__delivery,
     .benefits__brands{
         width:50%;
-        @include flexBox(center, center, nowrap);
+        @include flexBox(row, center, center, nowrap);
     }
 }
