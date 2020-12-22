@@ -1,0 +1,52 @@
+// Обнуление
+@import 'toNullStyle';
+
+  //***********//
+// Переменные 
+
+$fz:100px;
+$color_1: #000;
+$color_2: #fff;
+
+//Шаблоны
+%tplborder{
+    border-bottom: 5px dashed red;
+}
+// Mixin
+@mixin fontz($f){
+    font-size: $f;
+}
+
+// Вложенность 
+.block{
+    padding: 30px;
+    font-size: $fz;
+    line-height: 60px;
+    >p{
+        color: red;
+    }
+    span{
+        color: green;
+    }
+    .block__text{
+        font-size: $fz;
+    }
+}
+// & заменяет родительский класс
+.link{
+    color: blue;
+    text-decoration: underline;
+    @include fontz(40px);
+    @extend %tplborder;
+
+    .block &{
+        font-size: $fz;
+    }
+
+    &:hover{
+        color: green;
+    }
+    &:after{
+        content: '';
+    }
+}
