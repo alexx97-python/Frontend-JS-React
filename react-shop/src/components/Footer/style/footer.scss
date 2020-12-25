@@ -1,0 +1,9 @@
+@import '../../general_style/general_style.scss';
+@import '../../general_style/toNull.scss';
+
+.footer{
+    background: rgb(220, 226, 232);
+    .footer__top{
+        @include flexBox(row, center, space-between, wrap);
+    }
+}
