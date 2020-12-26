@@ -1,0 +1,17 @@
+@import '../../general_style/general_style.scss';
+@import '../../general_style/toNull.scss';
+
+.catalog__wrapper{
+    min-width: 80%;
+    padding-top: 20px;
+    margin: 0 auto;
+    @include flexBox(row, flex-start, center, wrap);
+    .sidebar__wrapper{
+        width: 20%;
+    }
+    .items__catalog__wrapper{
+        width: 70%;
+        @include flexBox(row, flex-start, flex-start, wrap);
+        gap: 15px;
+    }
+}

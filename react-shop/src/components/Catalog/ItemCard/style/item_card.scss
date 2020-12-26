@@ -1,0 +1,25 @@
+@import '../../../general_style/general_style.scss';
+@import '../../../general_style/toNull.scss';
+
+.item__card__wrapper{
+    width: 200px;
+    height: 300px;
+    margin-bottom: 15px;
+    p{
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    span{
+        display: inline-block;
+        margin-right: 10px;
+        &.initial__price{
+            text-decoration-line: line-through;
+            color: #555555;
+        }
+        &.final__price {
+            color: rgb(180, 14, 28);
+            font-weight: 700;
+        }
+    }
+}
