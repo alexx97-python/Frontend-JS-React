@@ -53,7 +53,31 @@ const Footer = (props) => {
                         </ul>
                 </div>
             </div>
-
+            <div className="footer__middle">
+                <div className="section__1">
+                    <h3>СПОСОБЫ ОПЛАТЫ</h3>
+                    <ul>
+                        <li>Футболки и поло</li>
+                        <li>Свитшоты</li>
+                        <li>Брюки</li>
+                    </ul>
+                </div>
+                <div className="section__2">
+                    <h3>МЫ В СОЦСЕТЯХ</h3>
+                    <ul>
+                        <li>Футболки и поло</li>
+                        <li>Свитшоты</li>
+                        <li>Брюки</li>
+                    </ul>
+                </div>
+                <div className="section__3">
+                    <p>+380 (44) 33 77 200</p>
+                    <p>help@shoppingmall.com.ua</p>
+                </div>
+            </div>
+            <div className="footer__bottom">
+                <p>Love&Live — интернет-магазин одежды, обуви и аксессуаров</p>
+            </div>
 
         </div>
     )
