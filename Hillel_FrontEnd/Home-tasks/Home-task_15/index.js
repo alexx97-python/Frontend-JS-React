@@ -65,7 +65,21 @@ let devices = {category: 'devices'};
 let cosmetics = {category: 'cosmetics'};
 
 // Adding prototype to relative objects
-let newKitchen = kitchenProducts.map((element) => {
+// Adding prototype to relative objects
+function addProto(array, proto){
+	return array.map((element) => {
+	    let good = Object.create(proto);
+	    good.type = element['type'];
+	    good.price = element['price'];
+	    return good
+	});
+}
+
+let newKitchen = addProto(kitchenProducts, kitchen);
+let newDevices = addProto(devicesProducts, devices);
+let newCosmetics = addProto(cosmeticsProducts, cosmetics);
+
+/* let newKitchen = kitchenProducts.map((element) => {
     let good = Object.create(kitchen);
     good.type = element['type'];
     good.price = element['price'];
@@ -84,7 +98,7 @@ let newCosmetics = cosmeticsProducts.map((element) => {
     good.type = element['type'];
     good.price = element['price'];
     return good;
-});
+}); */
 // Declaring array with new objects
 let productCards = [newKitchen, newDevices, newCosmetics];
 

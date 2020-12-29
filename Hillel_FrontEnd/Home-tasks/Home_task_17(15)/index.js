@@ -190,6 +190,7 @@ function renderCosmeticsColors() {
 }
 
 // Adding prototype to relative objects
+
 let newKitchen = kitchenProducts.map((element) => {
     let good = Object.create(kitchen);
     good.type = element['type'];
