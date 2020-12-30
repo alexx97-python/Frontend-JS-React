@@ -1,22 +1,58 @@
+// Variables
+let myBurger;
+
+
+
+// buttons
+const getToBurgerCreatorButton = document.querySelector('.to_burger_creator');
+const createBurgerButton = document.querySelector('.create_burger');
+
+// EventListners
+const renderBurgerCreator = getToBurgerCreatorButton.addEventListener('click', renderBurgerMenue);
+const createBurger = createBurgerButton.addEventListener('submit', createBurgerInstance);
+
+
+//Classes
 class HAMBURGER {
-    constructor(size, ingredient, ...spices){
+    constructor(size, addIngredient, addition){
         this.size = size,
-        this.ingredient = ingredient,
-        this.spices = spices
+        this.addIngredient = addIngredient,
+        this.addition = addition
     }
 
     calcCalories () {
         return HamburgerOptions.size[this.size].calories
-        + HamburgerOptions.addIngredients[this.ingredient].calories
-        + HamburgerOptions.addition[this.spices].calories
+        + HamburgerOptions.addIngredient[this.addIngredient].calories
+        + HamburgerOptions.addition[this.addition].calories
     }
 
     calcPrice () {
         return HamburgerOptions.size[this.size].price
-        + HamburgerOptions.addIngredients[this.ingredient].price
-        + HamburgerOptions.addition[this.spices].price
+        + HamburgerOptions.addIngredient[this.addIngredient].price
+        + HamburgerOptions.addition[this.addition].price
     }
 }
+
+//Functions For EventListeners
+
+function renderBurgerMenue (){
+    document.write(
+        
+    );
+}
+
+
+
+function createBurgerInstance () {
+    let size = document.querySelector('input[name="size"]').value,
+        addIngredient = document.querySelector('input[name="add_ingredient"]').value,
+        addition = document.querySelector('input[name="addition_ingredient"]').value;
+
+    myBurger = new HAMBURGER(size, addIngredient, addition);
+    console.log(myBurger);
+    myBurger.calcPrice();
+}
+
 
 const HamburgerOptions = {
     'size': {
@@ -29,7 +65,7 @@ const HamburgerOptions = {
             'calories': 40
         }
     },
-    'addIngredients': {
+    'addIngredient': {
         'chesee': {
             'price': 1,
             'calories': 20
@@ -54,10 +90,3 @@ const HamburgerOptions = {
         }
     }
 }
-
-
-let myHamburger = new HAMBURGER('small', 'chesee', 'seasoning');
-
-console.log(myHamburger);
-console.log(myHamburger.calcCalories());
-console.log(myHamburger.calcPrice())
