@@ -1,0 +1,138 @@
+body {
+  margin: 10px;
+  font-family: 'Jura', sans-serif;
+}
+
+.runaway {
+  position: relative;
+  width: 900px;
+  height: 100px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#536080), color-stop(50%, #536080), color-stop(50%, #394257));
+  background: linear-gradient(180deg, #536080 0%, #536080 50%, #394257 50%);
+  border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 3px dashed transparent;
+  border-bottom: 3px dashed transparent;
+  margin-bottom: 20px;
+}
+
+.runaway.go {
+  border-top-color: #4CAF50;
+  border-bottom-color: #4CAF50;
+}
+
+.runaway.stop {
+  border-top-color: #f44336;
+  border-bottom-color: #f44336;
+}
+
+.runaway__lines {
+  position: absolute;
+  top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50px;
+  height: 70px;
+}
+
+.runaway__lines:first-of-type {
+  left: 85px;
+}
+
+.runaway__lines:last-of-type {
+  right: 85px;
+}
+
+.runaway__lines span {
+  background: white;
+  height: 6px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.runaway__number {
+  font-weight: 600;
+  color: white;
+  font-size: 25px;
+  position: absolute;
+}
+
+.runaway__number:nth-child(4) {
+  left: 140px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.runaway__number:nth-child(5) {
+  right: 140px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.runaway__size {
+  position: absolute;
+  bottom: 36%;
+  left: 43%;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.27);
+  font-size: 25px;
+}
+
+.plane {
+  height: 55px;
+  left: 10px;
+  position: absolute;
+}
+
+.plane.planeRight {
+  left: auto;
+  right: 10px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.data {
+  margin: 30px 0;
+  color: #394257;
+  border-collapse: collapse;
+}
+
+.data tr:nth-child(2) th {
+  background: #dee3ee;
+}
+
+.data tr.disallowed {
+  background: #f44336;
+  color: white;
+}
+
+.data tr.allowed {
+  background: #4CAF50;
+  color: white;
+}
+
+.data th, .data td {
+  border: 1px solid #394257;
+  min-width: 25%;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+.data th:first-of-type, .data td:first-of-type {
+  text-align: left;
+  width: 25%;
+}
+/*# sourceMappingURL=style.css.map */
