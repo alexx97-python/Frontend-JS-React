@@ -9,6 +9,10 @@ const ItemCard = (props) => {
             <p>Love&Live</p>
             <span className="final__price">500 грн.</span>
             <span className="initial__price">700 грн.</span>
+            <a href="#" className="js_favourite_add"></a>
+            <div className="more_information_section">
+                <span> Подробнее </span>
+            </div>
         </div>
     )
 }

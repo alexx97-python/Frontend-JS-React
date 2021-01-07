@@ -39,14 +39,14 @@ const Header = (props) => {
             </div>
             <div className="heder__menue__wrapper">
                 <nav className="header__menue">
-                    <NavLink to="/catalog"><a href="#">СКИДКИ</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">ОН</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">ОНА</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">ДЕТИ</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">НОВИНКИ</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">ПОДАРКИ</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">БРЕНДЫ</a></NavLink>
-                    <NavLink to="/catalog"><a href="#">ВДОХНОВЕНИЕ</a></NavLink>
+                    <NavLink to="/catalog">СКИДКИ</NavLink>
+                    <NavLink to="/catalog">ОН</NavLink>
+                    <NavLink to="/catalog">ОНА</NavLink>
+                    <NavLink to="/catalog">ДЕТИ</NavLink>
+                    <NavLink to="/catalog">НОВИНКИ</NavLink>
+                    <NavLink to="/catalog">ПОДАРКИ</NavLink>
+                    <NavLink to="/catalog">БРЕНДЫ</NavLink>
+                    <NavLink to="/catalog">ВДОХНОВЕНИЕ</NavLink>
                 </nav>
             </div>
             <div className="header__slider">
