@@ -66,14 +66,9 @@ class RunwayCondition{
 	static renderTable(airfield, plane, pilot){
 		airfield.getRunaways(plane);
 
-		console.log(airfield);
-		console.log(plane);
-
 		let metar = METAR[airfield.abbr];
-		console.log(metar);
 
 		let weather = metar.split(' ');
-		console.log(weather);
 
 		let visibility = +weather[3];
 		let wind = +weather[2].slice(0,3);
@@ -95,7 +90,6 @@ class RunwayCondition{
 		let planeGo =  visibilityCheck!=='disallowed' && windSpeedCheck!=='disallowed' && BRBRCheck!=='disallowed' ? 'go' : 'stop';
 
 		let runawayDIV = document.querySelector('.runaway');
-		console.dir(runawayDIV);
 		runawayDIV.classList.add(planeGo);
 
 		let planeImg = document.querySelector('.plane');
@@ -104,8 +98,9 @@ class RunwayCondition{
 
 		if(numberOfRunaway === airfield.field[1]){
 			planeImg.classList.add('planeRight');
-		}
+        }
 
+        // table that display data of weather conditions
 		let table = `
 		<table class="data">
 			<thead>
@@ -250,5 +245,5 @@ let METAR = {
 }
 
 RunwayCondition.renderTable(UKLI, Boeing737, Ivanov);
-RunwayCondition.renderTable(UKKK, Boeing737, Ivanov);
+RunwayCondition.renderTable(UKKK, SukhoiSuperjet100, Ivanov);
 RunwayCondition.renderTable(UKBB, An24, Ivanov);

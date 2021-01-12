@@ -123,7 +123,7 @@ function getMedalIcon(element){
 
     return convertFromUnicode(medalUnicode);
 
-    function getMedalUnicode(medal){
+function getMedalUnicode(medal){
         // returns right unicode for medal
     if( medal=== 'gold'){
         return medals[0][0];

@@ -30,7 +30,6 @@ const App = (props) => {
 
         <Route path='/login'
           render={ () => <Login/>}/>
-
       </div>
     </div>
   );

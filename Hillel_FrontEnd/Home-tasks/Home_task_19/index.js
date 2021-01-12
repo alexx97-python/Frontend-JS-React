@@ -1,15 +1,3 @@
-//
-let myBurger;
-
-// buttons
-const getToBurgerCreatorButton = document.querySelector('.to_burger_creator');
-const createBurgerButton = document.querySelector('.create_burger');
-
-
-// EventListners
-getToBurgerCreatorButton.addEventListener('click', renderBurgerMenue);
-createBurgerButton.addEventListener('click', createBurgerInstance);
-
 
 //Classes
 class HAMBURGER {
@@ -30,32 +18,6 @@ class HAMBURGER {
         + HamburgerOptions.addIngredient[this.addIngredient].price
         + HamburgerOptions.addition[this.addition].price
     }
-}
-
-//Functions For EventListeners
-
-function renderBurgerMenue (){
-    document.write(
-        
-    );
-}
-
-
-
-function createBurgerInstance () {
-    debugger;
-    if(confirm('Do you want to create your burger?')){
-        let size = document.querySelector('input[name="size"]:checked').value,
-            addIngredient = document.querySelector('input[name="add_ingredient"]:checked').value,
-            addition = Array.from(document.querySelectorAll('input[name="addition_ingredient"]:checked'), element => element.value),
-            myBurger = new HAMBURGER(size, addIngredient, addition);
-        console.log(myBurger);
-
-        return myBurger
-    }else {
-        alert('Ok. We won\'t bother you')
-    }
-    
 }
 
 
@@ -95,3 +57,10 @@ const HamburgerOptions = {
         }
     }
 }
+
+let myHamburger = new HAMBURGER('big', 'chesee', 'mayonnaise');
+
+console.log(myHamburger);
+
+console.log(myHamburger.calcCalories());
+console.log(myHamburger.calcPrice());
