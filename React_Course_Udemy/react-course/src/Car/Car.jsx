@@ -15,7 +15,6 @@ const Car = (props) => {
             <strong>Number: {Math.round(Math.random() * 100)}</strong>
             <p>This is our car: <strong> {props.name} </strong> </p>
             <p>Year: <strong>{props.year}</strong></p>
-            {props.children}
         </div>
     );
 }
