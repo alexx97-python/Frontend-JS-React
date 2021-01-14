@@ -7,11 +7,18 @@
     border-radius: 5px;
 }
 
+.Сar:hover {
+    border: 1px solid #aaa;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    background-color: red;
+}
+
 .input{
 
 }
 
-.input:active, input:focus{
+.input:active{
     outline: none;
 }
 
