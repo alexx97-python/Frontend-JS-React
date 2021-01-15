@@ -1,0 +1,45 @@
+.container{
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.container button {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+
+.container button:hover{
+    color:rgb(176, 214, 226);
+    cursor: pointer;
+}
+
+.action__buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container button.start {
+    background-color: green;
+}
+.container button.stop{
+    background-color: red;
+}
+
+.container button.wait{
+    background-color:rgb(21, 170, 216);
+}
+
+.container button.reset{
+    background-color:rgb(216, 138, 21);
+}
+
+.header{
+    
+}
