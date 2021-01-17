@@ -15,11 +15,18 @@ class Layout extends Component {
         })
     }
 
+    menueCloseHandler = () => {
+        this.setState({
+            menue: false
+        })
+    }
+
     render(){
         return (
             <div className={classes.Layout}>
                 <Drawer 
                 isOpen = {this.state.menue}
+                onClose = {this.menueCloseHandler}
                 />
                 <MenueToggle 
                 onToggle = {this.onToggleMenueHandler}
