@@ -1,38 +1,18 @@
 import React, {Component} from 'react';
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz';
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz';
-import classes from './Quiz.module.css'
+import classes from './Quiz.module.css';
+import axios from '../../axios/axios-quiz';
+import Loader from '../../components/UI/Loader/Loader';
 
-class Quiz  extends Component {
+class Quiz extends Component {
     state = {
         results: {}, // {[id]: 'success' or 'error'}
         isFinished: false,
         activeQuestion: 0,
         answerState: null,
-        quiz: [
-            {  
-                question: 'What color is the sky?',
-                rtightAnswerId: 2,
-                id: 1,
-                answers: [
-                    {text: 'Black', id:1},
-                    {text: 'Blue', id:2},
-                    {text: 'Yellow', id:3},
-                    {text: 'Green', id:4},
-                ]
-            },
-            {  
-                question: 'In what year Kiev was established?',
-                rtightAnswerId: 4,
-                id: 2,
-                answers: [
-                    {text: '900', id:1},
-                    {text: '988', id:2},
-                    {text: '889', id:3},
-                    {text: '482', id:4},
-                ]
-            }
-        ]
+        quiz: [],
+        loading: true
     }
 
     onAnswerClickHandler = (answerId) => {
@@ -46,7 +26,7 @@ class Quiz  extends Component {
         const question = this.state.quiz[this.state.activeQuestion];
         const results = this.state.results;
 
-        if (question.rtightAnswerId === answerId) {
+        if (question.rightAnswerId === answerId) {
             if(!results[question.id]){
                 results[question.id] = 'success';
             }
@@ -95,6 +75,20 @@ class Quiz  extends Component {
         })
     }
 
+    async componentDidMount() {
+        try {
+            const response = await axios.get(`quizes/${this.props.match.params.id}.json`);
+            const quiz = response.data;
+
+            this.setState({
+                quiz,
+                loading: false
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     render() {
         return (
             <div className={classes.Quiz}>
@@ -102,20 +96,22 @@ class Quiz  extends Component {
                 <div className={classes.QuizWrapper}>
                     <h1>Answer all the questions</h1>
 
-                    {this.state.isFinished
-                    ? <FinishedQuiz 
-                        results = {this.state.results}
-                        quiz = {this.state.quiz}
-                        onRestart = {this.onRestartHandler}
-                    />
-                    : <ActiveQuiz 
-                        answers = {this.state.quiz[this.state.activeQuestion].answers}
-                        question = {this.state.quiz[this.state.activeQuestion].question}
-                        onAnswerClick = {this.onAnswerClickHandler}
-                        quizLength = {this.state.quiz.length}
-                        answerNumber = {this.state.activeQuestion + 1}
-                        state = {this.state.answerState}
+                    {this.state.loading
+                    ? <Loader />
+                    : this.state.isFinished
+                        ? <FinishedQuiz 
+                            results = {this.state.results}
+                            quiz = {this.state.quiz}
+                            onRestart = {this.onRestartHandler}
                         />
+                        : <ActiveQuiz 
+                            answers = {this.state.quiz[this.state.activeQuestion].answers}
+                            question = {this.state.quiz[this.state.activeQuestion].question}
+                            onAnswerClick = {this.onAnswerClickHandler}
+                            quizLength = {this.state.quiz.length}
+                            answerNumber = {this.state.activeQuestion + 1}
+                            state = {this.state.answerState}
+                            />
                     }
                 </div>
                 
