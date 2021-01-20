@@ -23,6 +23,7 @@ const Input = props => {
              id={htmlFor}
              value={props.value}
              onChange={props.onChange}
+             disabled={props.disabled}
             />
             {
               isInvalid(props)

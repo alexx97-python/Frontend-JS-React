@@ -33,6 +33,11 @@ export default class QuizCreator extends Component{
 
     state = {
         quiz: [],
+        quizTitle: createControl({
+            label: 'Enter your quiz title',
+            errorMessage: 'The field question can\'t be empty!'
+        }, {required: true}),
+        newQuiz: true,
         rightAnswerId: 1,
         isFormValid: false,
         formControls: createFormControls()
@@ -49,8 +54,10 @@ export default class QuizCreator extends Component{
         const index = quiz.length + 1;
 
         const {question, option1, option2, option3, option4} = this.state.formControls;
+        const quizTitle = this.state.quizTitle;
 
         const questionItem = {
+            quizTitle: quizTitle.value,
             question: question.value,
             id: index,
             rightAnswerId: this.state.rightAnswerId,
@@ -66,6 +73,7 @@ export default class QuizCreator extends Component{
 
         this.setState({
             quiz,
+            newQuiz: false,
             rightAnswerId: 1,
             isFormValid: false,
             formControls: createFormControls()
@@ -79,6 +87,11 @@ export default class QuizCreator extends Component{
             
             this.setState({
                 quiz: [],
+                quizTitle: createControl({
+                    label: 'Enter your quiz title',
+                    errorMessage: 'The field question can\'t be empty!'
+                }, {required: true}),
+                newQuiz: true,
                 rightAnswerId: 1,
                 isFormValid: false,
                 formControls: createFormControls()
@@ -91,6 +104,16 @@ export default class QuizCreator extends Component{
                 console.log(response);
             })
             .catch(error => console.log(error)); */
+    }
+
+    changeTitleHandler = (value) => {
+        const quizTitle = {...this.state.quizTitle}
+        quizTitle.value = value;
+
+        this.setState({
+            quizTitle,
+        })
+
     }
 
     changeHandler = (value, controlName) => {
@@ -119,6 +142,7 @@ export default class QuizCreator extends Component{
         return Object.keys(this.state.formControls).map((controlName, index) => {
             const control = this.state.formControls[controlName];
 
+
             return (
                 <Auxiliary>
                     <Input
@@ -130,6 +154,7 @@ export default class QuizCreator extends Component{
                     touched={control.touched}
                     errorMessage={control.errorMessage}
                     onChange={event => this.changeHandler(event.target.value, controlName)}
+                    disabled={false}
                     />
                     {index === 0 ? <hr /> : null}
                 </Auxiliary>
@@ -156,8 +181,16 @@ export default class QuizCreator extends Component{
 
                     <form onSubmit={this.submitHandler}>
 
-                        {this.renderControls()}
+                        <Input
+                        key={this.state.quizTitle}
+                        label={this.state.quizTitle['label']}
+                        value={this.state.quizTitle['value']}
+                        errorMessage={this.state.quizTitle['errorMessage']}
+                        onChange={event => this.changeTitleHandler(event.target.value)}
+                        disabled={!this.state.newQuiz}
+                        />
 
+                        {this.renderControls()}
 
                         { select }
 

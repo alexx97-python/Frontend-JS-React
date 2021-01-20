@@ -3,7 +3,6 @@ import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import classes from './Auth.module.css';
 import axios from 'axios';
-import { textChangeRangeIsUnchanged } from 'typescript';
 
 
 function validateEmail(email) {
@@ -43,7 +42,6 @@ export default class Auth extends Component {
     }
 
     loginHandler = async () => {
-        const apiKey = 'AIzaSyBGXdFt0lvls9cP6pD-rfUrdt9rSXb8vw0';
         const authData = {
             email: this.state.formControls.email.value,
             password: this.state.formControls.password.value,
@@ -59,7 +57,6 @@ export default class Auth extends Component {
     }
 
     signupHandler = async () => {
-        const apiKey = 'AIzaSyBGXdFt0lvls9cP6pD-rfUrdt9rSXb8vw0';
         const authData = {
             email: this.state.formControls.email.value,
             password: this.state.formControls.password.value,
@@ -79,7 +76,6 @@ export default class Auth extends Component {
         event.preventDefault();
     }
 
-    
 
     validateControl (value, validation){
         if (!validation){
