@@ -5,6 +5,8 @@ import {createControl, validate, validateForm} from '../../form/formFramework';
 import Input from '../../components/UI/Input/Input';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Select from '../../components/UI/Select/Select';
+import axios from 'axios';
+import { isThisTypeNode } from 'typescript';
 
 function createOptionControl(number){
     return createControl({
@@ -71,10 +73,25 @@ export default class QuizCreator extends Component{
         })
     }
 
-    createQuizHandler = (event) => {
+    createQuizHandler = async event => {
         event.preventDefault()
-
-        console.log(this.state.quiz);
+        try {
+            await axios.post('https://react-quiz-b307f-default-rtdb.firebaseio.com/quizes.json', this.state.quiz)
+            
+            this.setState({
+                quiz: [],
+                rightAnswerId: 1,
+                isFormValid: false,
+                formControls: createFormControls()
+            })
+        } catch (e){
+            console.log(e);
+        }
+        /* axios.post('https://react-quiz-b307f-default-rtdb.firebaseio.com/quizes.json', this.state.quiz)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => console.log(error)); */
     }
 
     changeHandler = (value, controlName) => {
@@ -146,6 +163,7 @@ export default class QuizCreator extends Component{
                         { select }
 
                         <Button
+                          key='btn-primary'
                           type='primary'
                           onClick={this.addQuestionHandler}
                           disabled={!this.state.isFormValid}
@@ -154,6 +172,7 @@ export default class QuizCreator extends Component{
                         </Button>
 
                         <Button
+                          key='btn-success'
                           type='success'
                           onClick={this.createQuizHandler}
                           disabled={this.state.quiz.length === 0}
