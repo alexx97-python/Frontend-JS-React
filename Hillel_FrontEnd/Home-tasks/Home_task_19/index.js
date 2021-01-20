@@ -1,19 +1,34 @@
-
-//Classes
-class HAMBURGER {
-    constructor(size, addIngredient, addition){
+class Hamburger {
+    constructor(size, addIngredient, addition=[]){
         this.size = size,
         this.addIngredient = addIngredient,
-        this.addition = addition
+        this.addition = addition,
+        this.ingredients = [size, addIngredient, [addition]];
     }
 
-    calcCalories () {
-        return HamburgerOptions.size[this.size].calories
-        + HamburgerOptions.addIngredient[this.addIngredient].calories
-        + HamburgerOptions.addition[this.addition].calories
+    setOption = (type, option) => {
+        if(Array.isArray(this[type])){
+            this[type].push(option);
+        } else {
+            this[type] = option;
+        }
     }
 
-    calcPrice () {
+    getBurgerCalories = () => {
+        let calories = 0;
+        for (let key in this.ingredients){
+            console.log(this.getProductCalories(this.ingredients[key]));
+        }
+
+        return calories;
+
+    }
+
+    getProductCalories(product) {
+        return HAMBURGER[product].calories
+    }
+
+    getPrice () {
         return HamburgerOptions.size[this.size].price
         + HamburgerOptions.addIngredient[this.addIngredient].price
         + HamburgerOptions.addition[this.addition].price
@@ -21,7 +36,7 @@ class HAMBURGER {
 }
 
 
-const HamburgerOptions = {
+const HAMBURGER = {
     'size': {
         'small': {
             'price': 5,
@@ -58,9 +73,12 @@ const HamburgerOptions = {
     }
 }
 
-let myHamburger = new HAMBURGER('big', 'chesee', 'mayonnaise');
+let myHamburger = new Hamburger('big', 'chesee', 'mayonnaise');
+/* 
+myHamburger.setOption('size', 'small');
+myHamburger.setOption('addIngredient', 'salad');
+myHamburger.setOption('addition', 'seasoning'); */
 
 console.log(myHamburger);
 
-console.log(myHamburger.calcCalories());
-console.log(myHamburger.calcPrice());
+console.log(myHamburger.getBurgerCalories());

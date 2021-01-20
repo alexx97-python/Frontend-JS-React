@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_task_20</title>
+<style>
+    .last{
+        background: green;
+        transition: background 2s ease-in-out;
+    }
+
+    .first-item{
+        background: red;
+        transition: background 2s ease-in-out;
+    }
+</style>
+</head>
+<body>
+    <ul class="root">
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </li>
+    </ul>
+<script>
+    // Task 1
+    const lastLi = document.body.querySelectorAll('ul li:last-child');
+    lastLi.forEach((li) => {
+        li.classList.add('last')
+    })
+    const root = document.body.querySelector('.root');
+
+    // Task 2
+    function setFirstItemClassName(level, elem){
+        let elems = elem.children
+        console.log(elems)
+        if (elems.length !== 0){
+            if(level === 1){
+                for (let i=0; i<elems.length; i++){
+                    elems[0].classList.add('first-item');
+                }
+            } else {
+                for (let i=0; i<elems.length; i++){
+                    setFirstItemClassName(level - 1, elems[i])
+                }
+            }
+        }
+    }
+
+    setFirstItemClassName(2, root)
+
+
+
+</script>
+</body>
+</html>

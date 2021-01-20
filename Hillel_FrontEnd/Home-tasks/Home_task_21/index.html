@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task-21</title>
+<style>
+body{
+    margin: 0;
+}
+#moved-block{
+    height: 100px;
+    width: 200px;
+    margin: 200px auto;
+    background: green;
+    transition: margin 0.3s ease-in-out;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+#boom {
+    display: none;
+}
+</style>
+</head>
+<body>
+    
+    <div id="moved-block">
+        <div class="buttons">
+            <button id="left-btn"> < </button>
+            <p id='boom'>BOOM!</p>
+            <button id="right-btn"> > </button>
+        </div>
+    </div>
+
+<script>
+    //Const of elements
+    const btnLeft = document.body.querySelector('#left-btn');
+    const btnRight = document.body.querySelector('#right-btn');
+    const block = document.body.querySelector('#moved-block');
+    const boom = document.body.querySelector('#boom');
+    const step = +prompt('Please, enter the number of px you want to move block on every click');
+
+
+    // Event Listeners
+    btnLeft.addEventListener('click', moveBlockLeft);
+    btnRight.addEventListener('click', moveBlockRight);
+
+    // Functions
+    function moveBlockRight () {
+        let style = window.getComputedStyle(block);
+        let margin = parseInt(style['margin-left'], 10);
+
+        if (window.innerWidth > margin + step){
+            block.style['margin-left'] = `${margin + step}px`;
+        } else {
+            block.style['margin-left'] = `${window.innerWidth}px`;
+            console.log('Enough')
+            setTimeout(() => {
+                block.style['margin-left'] = `${window.innerWidth - 2*step}px`;
+                boom.style.display = 'block';
+            }, 1000)
+            setTimeout(() => {
+                boom.style.display = 'none';
+            }, 3000)
+
+        }
+        
+
+    }
+
+    function moveBlockLeft () {
+        style = window.getComputedStyle(block);
+        let margin = parseInt(style['margin-left'], 10);
+
+        if (0 < margin - step){
+            block.style['margin-left'] = `${margin - step}px`;
+        } else {
+            block.style['margin-left'] = '0px';
+            console.log('Enough')
+            setTimeout(() => {
+                block.style['margin-left'] = `${2*step}px`;
+                boom.style.display = 'block';
+            }, 1000)
+            setTimeout(() => {
+                boom.style.display = 'none';
+            }, 3000)
+        }
+    }
+    
+</script>
+</body>
+</html>
