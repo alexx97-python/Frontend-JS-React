@@ -1,0 +1,13 @@
+.NavBar{
+    min-height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavBar a {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
