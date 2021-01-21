@@ -6,6 +6,7 @@ const Header = props => {
     return (
         <div>
             {props.city}
+            {props.country}
             temperature
             icon
         </div>

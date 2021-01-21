@@ -22,32 +22,42 @@ class Weather extends Component {
         })
     }
 
-    componentDidMount(){
-        WeatherAPI.getWeather()
+    async componentDidMount(){
+        this.setState({
+            isLoaded: false
+        })
+        await WeatherAPI.getWeather()//city=, country=
         .then(data => {
             this.setWeatherData(data)
         })
+
     }
 
     render(){
-        if (this.state.isLoaded) {
+        console.log(this.state)
             return (
                 <div className={classes.Weather}>
-                    <Header
-                    city = {this.state.weatherData.city_name}
-                    temperature = {(this.state.weatherData.data)} />
-                    <NavBar />
-                    <WeatherCondition />
+                    {!this.state.isLoaded ? 
+                    <div className={classes.Preloader}>
+                        <Preloader />
+                    </div>
+                    :
+                    <React.Fragment>
+                        <Header
+                        city = {this.state.weatherData.city_name}
+                        country = {this.state.weatherData.country_code}
+                        temperature = {(this.state.weatherData.data)}
+                        />
+                        <NavBar />
+                        <WeatherCondition
+                        weatherData = {this.state.weatherData.data}
+                        />
+                    </React.Fragment>
+                     }
                 </div>
             )
         }
 
-        return (
-            <div className={classes.Weather}>
-                 <Preloader />
-            </div>
-        )
-    }
 }
 
 export default Weather;

@@ -1,6 +1,60 @@
+p{
+    margin: 0;
+    padding: 0;
+}
+
+
 .WeatherConditionItem {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    height: 140px;
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    box-sizing: border-box;
+    --grey-color: rgb(190, 179, 179);
+}
+
+.Date p{
+    font-weight: 500;
+}
+
+.Date p:first-child{
+    font-size: 16px;
+}
+
+.Date p:last-child{
+    font-size: 12px;
+    color: var(--grey-color);
+}
+
+.WeatherIcon{
+    height: 120px;
+    width: 120px;
+}
+.Temperature{
+    width: 120px;
+}
+.Temperature p{
+    text-align: left;
+    font-size: 42px;
+    font-weight: 500;
+}
+
+.Temperature span{
+    font-size: 14px;
+    color: var(--grey-color);
+}
+
+.Humidity {
+    color:var(--grey-color);
+}
+
+.Description {
+    width: 120px;
 }

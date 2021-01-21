@@ -1,22 +1,40 @@
 import React from 'react';
 import classes from './WeatherConditionItem.module.css';
 
+// object with days name values
+const days = {
+    '0': 'SUNDAY',
+    '1': 'MONDAY',
+    '2': 'TUESDAY',
+    '3': 'WEDNESDAY',
+    '4': 'THURSDAY',
+    '5': 'FRIDAY',
+    '6': 'SATURDAY'
+}
+
 const WeatherConditionItem = props => {
-    
+    const dayName = days[new Date(props.datetime).getDay()].slice(0,3);
+
     return (
         <div className={classes.WeatherConditionItem}>
             <div className={classes.Date}>
-                <p>THU</p>
-                <p>1/21</p>
+                <p>{dayName}</p>
+                <p>{+props.month}/{+props.day}</p>
             </div>
-            <div>
-                <i>Icon</i>
+            <div className={classes.WeatherIcon}>
+                <img src={`../../../../../../../src/img/weatherIcons/icons/${props.icon}.png`} alt="weather-icon"/>
             </div>
-            <div>
-                <p>2 <span>/-2</span></p>
+            <div className={classes.Temperature}>
+                <p>{props.maxTemp}°<span>/{props.minTemp}°</span></p>
             </div>
-            <div>
-                20%
+            <div className={classes.Description}>
+                <p>
+                    {props.weatherDescription}
+                </p>
+            </div>
+            <div className={classes.Humidity}>
+                <i className={"fas fa-tint"}></i>
+                {props.precipitationChance}%
             </div>
         </div>
     )

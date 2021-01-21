@@ -1,0 +1,14 @@
+.Weather{
+    background:#ebebeb;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: space-around;
+    flex-direction: column;
+}
+
+.Preloader {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
