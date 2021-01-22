@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../common/Button/Button';
 import classes from './Header.module.css';
 
 
@@ -15,15 +16,15 @@ const Header = props => {
                     icon
                 </p>
                 <div className={classes.SearchBtn}>
-                    <button >Search another city</button>
+                    <Button type="submit" onClick={props.onShowMenue}>Show search menu</Button>
                 </div>
-                <div className={classes.SearchForm}>
+                <div className={classes.SearchForm} id='search-from'>
                     <form action="">
                         <label htmlFor="city">City</label>
                         <input type="text" name='city' placeholder='Kiev' id='city'/>
                         <label htmlFor="country" >Country</label>
                         <input type="text" name='country' placeholder='UA' id='country'/>
-                        <button type="submit" onClick={props.btnSearchHandler}>Search</button>
+                        <Button type="submit" onClick={props.btnSearchHandler}>Search</Button>
                     </form>
                 </div>
             </div>

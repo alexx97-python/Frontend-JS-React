@@ -21,6 +21,7 @@ class Weather extends Component {
             weatherData: {...data},
             isLoaded: true
         })
+
     }
 
     btnSearchHandler = async (e) => {
@@ -34,32 +35,35 @@ class Weather extends Component {
 
         await WeatherAPI.getWeather(city, country)
         .then(data => {
-            this.setWeatherData(data)
-        })
+            setTimeout(() => {
+                this.setWeatherData(data)
+        }, 1000)})
+    }
+
+    onShowMenue = () => {
+        console.log('Clicked', this)
+
+        const searchForm = document.body.querySelector('#search-from');
+        searchForm.style.display = 'flex';
     }
 
     componentDidMount(){
-        this.setState({
-            isLoaded: false
-        })
         if(!navigator.geolocation) {
             console.log('not allowed')
           } else {
-            navigator.geolocation.getCurrentPosition( async position => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-    
-                await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAwOaXbKZ9VVT7udXISArQML4EckXY1PWY`)
-                .then(response => {
-                    const city = response.data.results[3].address_components[2].short_name;
-                    const country = response.data.results[3].address_components[4].short_name;
+            navigator.geolocation.getCurrentPosition( position => {
+                let latitude = position.coords.latitude;
+                let longitude = position.coords.longitude;
 
-                    WeatherAPI.getWeather(city, country)
-                        .then(data => {
-                            this.setWeatherData(data)
+                WeatherAPI.getCityCountry(latitude, longitude)
+                .then(response => {
+                    WeatherAPI.getWeather(response[0], response[1])
+                    .then(data => {
+                        this.setWeatherData(data)
                     })
-                })
-            })}
+                });
+            });
+        }
     }
 
     render(){
@@ -77,6 +81,7 @@ class Weather extends Component {
                         country = {this.state.weatherData.country_code}
                         temperature = {this.state.weatherData.data}
                         btnSearchHandler = {this.btnSearchHandler}
+                        onShowMenue = {this.onShowMenue}
                         />
                         <NavBar />
                         <WeatherCondition
