@@ -15,7 +15,16 @@ const Header = props => {
                     icon
                 </p>
                 <div className={classes.SearchBtn}>
-                    <button onClick={props.btnSearchHandler}>Search another city</button>
+                    <button >Search another city</button>
+                </div>
+                <div className={classes.SearchForm}>
+                    <form action="">
+                        <label htmlFor="city">City</label>
+                        <input type="text" name='city' placeholder='Kiev' id='city'/>
+                        <label htmlFor="country" >Country</label>
+                        <input type="text" name='country' placeholder='UA' id='country'/>
+                        <button type="submit" onClick={props.btnSearchHandler}>Search</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -23,21 +23,22 @@ class Weather extends Component {
         })
     }
 
-    btnSearchHandler = async () => {
+    btnSearchHandler = async (e) => {
+        e.preventDefault();
         this.setState({
             isLoaded: false
         })
 
-        /* await GoogleAPI.getLocation().then(respone =>{
-            console.log(respone)
-        }) */
-        await WeatherAPI.getWeather('Kiev', 'UA')
+        const city = document.getElementById('city').value;
+        const country = document.getElementById('country').value;
+
+        await WeatherAPI.getWeather(city, country)
         .then(data => {
             this.setWeatherData(data)
         })
     }
 
-    async componentDidMount(){
+    componentDidMount(){
         this.setState({
             isLoaded: false
         })

@@ -27,3 +27,21 @@ p, input{
     padding: 5px 10px;
     display: block;
 }
+
+.SearchForm{
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    display: block;
+    height: 300px;
+    width: 250px;
+}
+.SearchForm form{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchForm form input{
+    margin: 10px;
+}
