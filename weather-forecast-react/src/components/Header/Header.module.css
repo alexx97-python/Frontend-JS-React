@@ -31,7 +31,8 @@ p, input{
     height: 180px;
     width: 250px;
     background: rgb(228, 135, 28);
-    transition: display 0.5s ease-in;
+    transition: display 2s ease-in;
+    border-radius: 5px;
 }
 .SearchForm form{
     color: white;
@@ -47,8 +48,4 @@ p, input{
     width: 100%;
     text-align: center;
     color: rgb(228, 135, 28);
-}
-
-.Display {
-    display: flex;
 }

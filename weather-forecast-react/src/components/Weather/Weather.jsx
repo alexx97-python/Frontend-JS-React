@@ -12,17 +12,19 @@ class Weather extends Component {
         super(props);
         this.state = {
             isLoaded: false,
+            mainWeatherData: [],
             weatherData: []
         }
     }
 
     setWeatherData(data){
         this.setState({
+            mainWeatherData: {...data},
             weatherData: {...data},
             isLoaded: true
         })
-
     }
+
 
     btnSearchHandler = async (e) => {
         e.preventDefault();
@@ -40,11 +42,51 @@ class Weather extends Component {
         }, 1000)})
     }
 
-    onShowMenue = () => {
-        console.log('Clicked', this)
+    
+    onOptionChange = (event) => {
+        let option = event.target.value;
+        switch(option){
+            case 'Today':
+                this.setState({
+                    weatherData: {
+                        data: [this.state.mainWeatherData.data[0]]
+                    }
+                })
+                break;
+            case 'Tomorrow':
+                this.setState({
+                    weatherData: {
+                        data: [this.state.mainWeatherData.data[1]]
+                    }
+                })
+                break;
+            case '3 Days':
+                this.setState({
+                    weatherData: {
+                        data: [...this.state.mainWeatherData.data.slice(0,3)]
+                    }
+                })
+                break;
+            case '1 Week':
+                this.setState({
+                    weatherData: {
+                        data: [...this.state.mainWeatherData.data.slice(0,7)]
+                    }
+                })
+                break;
+            case '2 Weeks':
+                this.setState({
+                    weatherData: {
+                        data: [...this.state.mainWeatherData.data.slice(0,14)]
+                    }
+                })
+                break;
+        }
+    }
 
+    onShowMenue = () => {
         const searchForm = document.body.querySelector('#search-from');
-        searchForm.style.display = 'flex';
+        searchForm.style.display = (searchForm.style.display ==='flex') ? null : 'flex';
     }
 
     componentDidMount(){
@@ -83,7 +125,9 @@ class Weather extends Component {
                         btnSearchHandler = {this.btnSearchHandler}
                         onShowMenue = {this.onShowMenue}
                         />
-                        <NavBar />
+                        <NavBar
+                          onOptionChange = {this.onOptionChange}
+                        />
                         <WeatherCondition
                         weatherData = {this.state.weatherData.data}
                         />

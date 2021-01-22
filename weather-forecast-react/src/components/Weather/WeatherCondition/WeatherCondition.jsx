@@ -29,7 +29,6 @@ const WeatherCondition = props => {
         <div className={classes.WeatherCondition}>
             <p>{currentMonth.toUpperCase()} {currentDay} - {lastDayMonth.toUpperCase()} {lastDay}</p>
             {weatherConditionItems}
-
         </div>
     )
 }
