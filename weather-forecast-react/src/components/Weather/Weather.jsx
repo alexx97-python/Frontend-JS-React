@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { WeatherAPI } from '../../api/weatherApi';
+import axios from 'axios';
 import Preloader from '../common/Preloader/Preloader';
 import Header from '../Header/Header';
 import NavBar from '../navigation/NavBar/NavBar';
@@ -22,15 +23,42 @@ class Weather extends Component {
         })
     }
 
+    btnSearchHandler = async () => {
+        this.setState({
+            isLoaded: false
+        })
+
+        /* await GoogleAPI.getLocation().then(respone =>{
+            console.log(respone)
+        }) */
+        await WeatherAPI.getWeather('Kiev', 'UA')
+        .then(data => {
+            this.setWeatherData(data)
+        })
+    }
+
     async componentDidMount(){
         this.setState({
             isLoaded: false
         })
-        await WeatherAPI.getWeather()//city=, country=
-        .then(data => {
-            this.setWeatherData(data)
-        })
+        if(!navigator.geolocation) {
+            console.log('not allowed')
+          } else {
+            navigator.geolocation.getCurrentPosition( async position => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+    
+                await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAwOaXbKZ9VVT7udXISArQML4EckXY1PWY`)
+                .then(response => {
+                    const city = response.data.results[3].address_components[2].short_name;
+                    const country = response.data.results[3].address_components[4].short_name;
 
+                    WeatherAPI.getWeather(city, country)
+                        .then(data => {
+                            this.setWeatherData(data)
+                    })
+                })
+            })}
     }
 
     render(){
@@ -46,7 +74,8 @@ class Weather extends Component {
                         <Header
                         city = {this.state.weatherData.city_name}
                         country = {this.state.weatherData.country_code}
-                        temperature = {(this.state.weatherData.data)}
+                        temperature = {this.state.weatherData.data}
+                        btnSearchHandler = {this.btnSearchHandler}
                         />
                         <NavBar />
                         <WeatherCondition

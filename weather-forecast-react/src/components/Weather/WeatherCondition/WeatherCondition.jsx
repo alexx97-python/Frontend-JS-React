@@ -3,9 +3,15 @@ import classes from './WeatherCondition.module.css';
 import WeatherConditionItem from './WeatherConditionItem/WeatherConditionItem';
 
 const WeatherCondition = props => {
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+    const currentDay = props.weatherData[0].datetime.slice(-2);
+    const currentMonth = monthNames[props.weatherData[0].datetime.slice(-5,-3) - 1];
+    const lastDay = props.weatherData[props.weatherData.length-1].datetime.slice(-2);
+    const lastDayMonth = monthNames[props.weatherData[props.weatherData.length-1].datetime.slice(-5,-3) - 1];
 
     const weatherConditionItems = props.weatherData.map((data, index) => {
-        console.log(data)
+
         return (
         <WeatherConditionItem 
             key={index}
@@ -22,8 +28,8 @@ const WeatherCondition = props => {
     console.log(weatherConditionItems);
 
     return(
-        <div>
-            WeatherCondition Container
+        <div className={classes.WeatherCondition}>
+            <p>{currentMonth.toUpperCase()} {currentDay} - {lastDayMonth.toUpperCase()} {lastDay}</p>
             {weatherConditionItems}
 
         </div>

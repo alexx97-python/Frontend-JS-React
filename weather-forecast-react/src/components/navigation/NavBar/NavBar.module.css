@@ -1,13 +1,23 @@
 .NavBar{
     min-height: 10vh;
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.NavBar a {
+.NavBar button {
+    display: block;
     text-decoration: none;
     margin: 0;
     padding: 0;
+    border: none;
+    height: 100%;
+    width: 20%;
+}
+
+.NavBar button:hover{
+    background: blue;
+    cursor: pointer;
 }

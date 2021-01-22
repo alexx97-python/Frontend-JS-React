@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 export const WeatherAPI = {
-    getWeather(city = 'Okhtyrka', country = 'UA') {
+    getWeather(city = 'kharkiv', country = 'UA') {
         return instance.get(`/forecast/daily?city=${city}&country=${country}&key=eb7f6fad275b45cbae2ebed8bf63e34a`)
             .then(response => {
                 return response['data'];
