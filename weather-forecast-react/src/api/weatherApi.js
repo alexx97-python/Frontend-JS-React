@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 export const WeatherAPI = {
-    getWeather(city = 'kharkiv', country = 'UA') {
+    getWeather(city = 'Kharkiv', country = 'UA') {
         return instance.get(`/forecast/daily?city=${city}&country=${country}&key=eb7f6fad275b45cbae2ebed8bf63e34a`)
             .then(response => {
                 return response['data'];
@@ -14,10 +14,11 @@ export const WeatherAPI = {
     },
 
     getCityCountry(latitude, longitude){
-        return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAwOaXbKZ9VVT7udXISArQML4EckXY1PWY`)
+        return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&language=en&result_type=country|locality&key=AIzaSyAwOaXbKZ9VVT7udXISArQML4EckXY1PWY`)
             .then(response => {
-                    const city = response.data.results[3].address_components[2].short_name;
-                    const country = response.data.results[3].address_components[3].short_name;
+                console.log(response)
+                    const city = response.data.results[0].address_components[0].short_name;
+                    const country = response.data.results[0].address_components[2].short_name;
                     return [city, country];
             })
         }

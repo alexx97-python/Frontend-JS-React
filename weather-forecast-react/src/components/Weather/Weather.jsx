@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { WeatherAPI } from '../../api/weatherApi';
-import axios from 'axios';
 import Preloader from '../common/Preloader/Preloader';
 import Header from '../Header/Header';
 import NavBar from '../navigation/NavBar/NavBar';
@@ -32,8 +31,8 @@ class Weather extends Component {
             isLoaded: false
         })
 
-        const city = document.getElementById('city').value;
-        const country = document.getElementById('country').value;
+        const city = document.getElementById('city').value || 'Kiev';
+        const country = document.getElementById('country').value || 'UA';
 
         await WeatherAPI.getWeather(city, country)
         .then(data => {
@@ -42,7 +41,7 @@ class Weather extends Component {
         }, 1000)})
     }
 
-    
+
     onOptionChange = (event) => {
         let option = event.target.value;
         switch(option){
@@ -96,11 +95,14 @@ class Weather extends Component {
             navigator.geolocation.getCurrentPosition( position => {
                 let latitude = position.coords.latitude;
                 let longitude = position.coords.longitude;
+                console.log(latitude, longitude)
 
                 WeatherAPI.getCityCountry(latitude, longitude)
                 .then(response => {
+                    console.log(response)
                     WeatherAPI.getWeather(response[0], response[1])
                     .then(data => {
+                        console.log(data)
                         this.setWeatherData(data)
                     })
                 });
@@ -119,9 +121,9 @@ class Weather extends Component {
                     :
                     <React.Fragment>
                         <Header
-                        city = {this.state.weatherData.city_name}
-                        country = {this.state.weatherData.country_code}
-                        temperature = {this.state.weatherData.data}
+                        city = {this.state.mainWeatherData.city_name}
+                        country = {this.state.mainWeatherData.country_code}
+                        weatherToday = {this.state.mainWeatherData.data}
                         btnSearchHandler = {this.btnSearchHandler}
                         onShowMenue = {this.onShowMenue}
                         />

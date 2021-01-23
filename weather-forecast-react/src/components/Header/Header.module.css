@@ -18,6 +18,8 @@ p, input{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 
@@ -47,5 +49,29 @@ p, input{
 .SearchForm button {
     width: 100%;
     text-align: center;
+    color: rgb(228, 135, 28);
+}
+
+
+.SearchBtn button:hover{
+    background: rgb(228, 135, 28);
+    color: white;
+    cursor: pointer;
+}
+
+.SearchBtn button:focus{
+    outline: none;
+}
+
+.Title span{
+    margin-right: 10px;
+}
+
+.Title span:nth-child(2){
+    font-size: 20px;
+}
+
+.Title i{
+    font-size: 30px;
     color: rgb(228, 135, 28);
 }
