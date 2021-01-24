@@ -17,6 +17,7 @@ class Weather extends Component {
         }
     }
 
+    // method to update set after each weather request
     setWeatherData(data){
         this.setState({
             mainWeatherData: {...data},
@@ -25,7 +26,7 @@ class Weather extends Component {
         })
     }
 
-
+    // handler of search btn, when user look for weather in certain city
     btnSearchHandler = async (e) => {
         e.preventDefault();
         this.setState({
@@ -35,7 +36,14 @@ class Weather extends Component {
         const city = document.getElementById('city').value || 'Kiev';
         const country = document.getElementById('country').value || 'UA';
         let dateNow = Date.now();
-        let dateOnLastUpdate = Date.parse(JSON.parse(localStorage[city]).data[0]['valid_date']);
+        let dateOnLastUpdate;
+        if (localStorage[city] === 'undefined'){
+            console.log('Hey')
+            dateOnLastUpdate = Date.parse(JSON.parse(localStorage[city]).data[0].valid_date)
+        } else {
+            dateOnLastUpdate = 0;
+        }
+        // check if we have the same data in local and if it was updated today
         if (localStorage[city] && dateNow-dateOnLastUpdate<86400000 ){
             let data = JSON.parse(localStorage[city]);
             setTimeout(() => {
@@ -51,7 +59,7 @@ class Weather extends Component {
         
     }
 
-
+    // method to render data according to requested option 
     onOptionChange = (event) => {
         let option = event.target.value;
         switch(option){
@@ -93,6 +101,7 @@ class Weather extends Component {
         }
     }
 
+    // displays form to search another city
     onShowMenue = () => {
         const searchForm = document.body.querySelector('#search-from');
         searchForm.style.display = (searchForm.style.display ==='flex') ? null : 'flex';
@@ -100,24 +109,28 @@ class Weather extends Component {
 
     componentDidMount(){
         if(!navigator.geolocation) {
-            console.log('not allowed')
+            this.setState({navigatorAllowed: false})
           } else {
             navigator.geolocation.getCurrentPosition( position => {
+                // get two parameters to define user
                 let latitude = position.coords.latitude;
                 let longitude = position.coords.longitude;
                 WeatherAPI.getCityCountry(latitude, longitude)
                 .then(response => {
+                    console.log(localStorage[response[0]])
                     let dateNow = Date.now();
-                    let dateOnLastUpdate = Date.parse(JSON.parse(localStorage[response[0]]).data[0]['valid_date']);
-                    if (localStorage[response[0]] && dateNow-dateOnLastUpdate<86400000){
+                    let dateOnLastUpdate = (localStorage[response[0]]) ? Date.parse(JSON.parse(localStorage[response[0]]).data[0]['valid_date']) : 0;
+                    if (localStorage[response] && dateNow-dateOnLastUpdate<86400000){
                         let data = JSON.parse(localStorage[response[0]]);
                         setTimeout(() => {
                             this.setWeatherData(data)
                         }, 1000)} else {
                             WeatherAPI.getWeather(response[0], response[1])
                                 .then(data => {
-                                    console.log(data)
                                     this.setWeatherData(data)
+                                if(!this.state.weatherData){
+                                    this.setState({navigatorAllowed: false})
+                                }
                         })
                      }
                 });
@@ -126,7 +139,6 @@ class Weather extends Component {
     }
 
     render(){
-        console.log(this.state)
             return (
                 <div className={classes.Weather}>
                     {!this.state.isLoaded ? 
@@ -145,9 +157,11 @@ class Weather extends Component {
                         <NavBar
                           onOptionChange = {this.onOptionChange}
                         />
+                        
                         <WeatherCondition
                         weatherData = {this.state.weatherData.data}
                         />
+                        
                     </React.Fragment>
                      }
                 </div>
