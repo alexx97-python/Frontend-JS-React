@@ -63,6 +63,11 @@ p, input{
     outline: none;
 }
 
+.Title {
+    display: flex;
+    align-items: center;
+}
+
 .Title span{
     margin-right: 10px;
 }
@@ -74,4 +79,9 @@ p, input{
 .Title i{
     font-size: 30px;
     color: rgb(228, 135, 28);
+}
+
+#icon {
+    height: 50px;
+    width: 50px;
 }

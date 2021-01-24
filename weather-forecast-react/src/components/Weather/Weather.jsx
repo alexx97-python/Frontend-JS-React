@@ -10,6 +10,7 @@ class Weather extends Component {
     constructor(props){
         super(props);
         this.state = {
+            navigatorAllowed: true,
             isLoaded: false,
             mainWeatherData: [],
             weatherData: []
@@ -33,12 +34,21 @@ class Weather extends Component {
 
         const city = document.getElementById('city').value || 'Kiev';
         const country = document.getElementById('country').value || 'UA';
-
-        await WeatherAPI.getWeather(city, country)
-        .then(data => {
+        let dateNow = Date.now();
+        let dateOnLastUpdate = Date.parse(JSON.parse(localStorage[city]).data[0]['valid_date']);
+        if (localStorage[city] && dateNow-dateOnLastUpdate<86400000 ){
+            let data = JSON.parse(localStorage[city]);
             setTimeout(() => {
                 this.setWeatherData(data)
-        }, 1000)})
+            }, 1000)
+        } else {
+            await WeatherAPI.getWeather(city, country)
+            .then(data => {
+                setTimeout(() => {
+                    this.setWeatherData(data)
+            }, 1000)})
+        }
+        
     }
 
 
@@ -95,16 +105,21 @@ class Weather extends Component {
             navigator.geolocation.getCurrentPosition( position => {
                 let latitude = position.coords.latitude;
                 let longitude = position.coords.longitude;
-                console.log(latitude, longitude)
-
                 WeatherAPI.getCityCountry(latitude, longitude)
                 .then(response => {
-                    console.log(response)
-                    WeatherAPI.getWeather(response[0], response[1])
-                    .then(data => {
-                        console.log(data)
-                        this.setWeatherData(data)
-                    })
+                    let dateNow = Date.now();
+                    let dateOnLastUpdate = Date.parse(JSON.parse(localStorage[response[0]]).data[0]['valid_date']);
+                    if (localStorage[response[0]] && dateNow-dateOnLastUpdate<86400000){
+                        let data = JSON.parse(localStorage[response[0]]);
+                        setTimeout(() => {
+                            this.setWeatherData(data)
+                        }, 1000)} else {
+                            WeatherAPI.getWeather(response[0], response[1])
+                                .then(data => {
+                                    console.log(data)
+                                    this.setWeatherData(data)
+                        })
+                     }
                 });
             });
         }

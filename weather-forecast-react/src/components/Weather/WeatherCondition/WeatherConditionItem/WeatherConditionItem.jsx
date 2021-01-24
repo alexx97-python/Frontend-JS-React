@@ -22,7 +22,8 @@ const WeatherConditionItem = props => {
                 <p>{+props.month}/{+props.day}</p>
             </div>
             <div className={classes.WeatherIcon}>
-                <img src={`src/components/Weather/WeatherCondition/WeatherConditionItem/icons/${props.icon}.png`} alt="weather-icon"/>
+            
+                <img src={`${process.env.PUBLIC_URL}/assets/icons/${props.icon}.png`} alt="weather-icon"/>
             </div>
             <div className={classes.Temperature}>
                 <p>{props.maxTemp}°<span>/{props.minTemp}°</span></p>

@@ -16,7 +16,7 @@ const Header = props => {
                     <span>{props.city}</span>
                     <span>{props.country}</span>
                     <span>{temperature ? temperature : 0}°c</span>
-                    <span><img src="" alt=""/> {icon}</span>
+                    <span ><img src={`${process.env.PUBLIC_URL}/assets/icons/${icon}.png`} id={classes.icon} alt=""/> </span>
                 </p>
                 <div className={classes.SearchBtn}>
                     <Button type="submit" onClick={props.onShowMenue}>Show search menu</Button>

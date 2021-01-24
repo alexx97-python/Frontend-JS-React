@@ -9,6 +9,8 @@ export const WeatherAPI = {
     getWeather(city = 'Kharkiv', country = 'UA') {
         return instance.get(`/forecast/daily?city=${city}&country=${country}&key=eb7f6fad275b45cbae2ebed8bf63e34a`)
             .then(response => {
+                let localData = JSON.stringify(response['data']);
+                localStorage.setItem(city, localData)
                 return response['data'];
             })
     },
