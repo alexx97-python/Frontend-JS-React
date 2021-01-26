@@ -7,13 +7,14 @@
 <style>
     .last{
         background: green;
-        transition: background 2s ease-in-out;
+        transition: background 2s;
     }
 
     .first-item{
         background: red;
-        transition: background 2s ease-in-out;
+        transition: background 2s;
     }
+
 </style>
 </head>
 <body>
@@ -56,8 +57,8 @@
 
     // Task 2
     function setFirstItemClassName(level, elem){
-        let elems = elem.children
-        console.log(elems)
+        let elems = elem.children;
+
         if (elems.length !== 0){
             if(level === 1){
                 for (let i=0; i<elems.length; i++){
@@ -65,13 +66,17 @@
                 }
             } else {
                 for (let i=0; i<elems.length; i++){
-                    setFirstItemClassName(level - 1, elems[i])
+                    setFirstItemClassName(level - 1, elems[i]);
                 }
             }
+        } else {
+            console.log('You do not have enough nested elements to perform the task')
         }
     }
 
-    setFirstItemClassName(2, root)
+    setTimeout( () => {
+        setFirstItemClassName(3, root);
+    }, 2000) 
 
 
 

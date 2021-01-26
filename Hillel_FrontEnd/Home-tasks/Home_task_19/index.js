@@ -1,37 +1,55 @@
-class Hamburger {
-    constructor(size, addIngredient, addition=[]){
-        this.size = size,
-        this.addIngredient = addIngredient,
-        this.addition = addition,
-        this.ingredients = [size, addIngredient, [addition]];
-    }
+class HumbergerMethods {
 
-    setOption = (type, option) => {
+    setOption (type, option) {
         if(Array.isArray(this[type])){
-            this[type].push(option);
+            if (!this[type].includes(option)){
+                this[type].push(option);
+            } else {
+                console.log('You have already added this option in your burger')
+            }
+            
         } else {
             this[type] = option;
         }
     }
 
-    getBurgerCalories = () => {
+    getBurgerCalories () {
         let calories = 0;
-        for (let key in this.ingredients){
-            console.log(this.getProductCalories(this.ingredients[key]));
+        for (let key in this){
+                if(Array.isArray(this[key])){
+                    this[key].forEach(element => {
+                        calories += HAMBURGER[key][element].calories;
+                    });
+                } else {
+                    calories += HAMBURGER[key][this[key]].calories;
+                }
         }
-
-        return calories;
-
+        console.log(`This burger contains value of ${calories} calories.`)
     }
 
-    getProductCalories(product) {
-        return HAMBURGER[product].calories
-    }
 
-    getPrice () {
-        return HamburgerOptions.size[this.size].price
-        + HamburgerOptions.addIngredient[this.addIngredient].price
-        + HamburgerOptions.addition[this.addition].price
+    getBurgerPrice () {
+        let price = 0;
+        for (let key in this){
+                if(Array.isArray(this[key])){
+                    this[key].forEach(element => {
+                        price += HAMBURGER[key][element].price;
+                    });
+                } else {
+                    price += HAMBURGER[key][this[key]].price;
+                }
+
+        }
+        console.log(`This burger cost is ${price}$.`)
+    }
+}
+
+class Hamburger extends HumbergerMethods {
+    constructor(size, addIngredient, addition){
+        super(constructor);
+        this.size = size,
+        this.addIngredient = addIngredient,
+        this.addition = [addition]
     }
 }
 
@@ -74,11 +92,15 @@ const HAMBURGER = {
 }
 
 let myHamburger = new Hamburger('big', 'chesee', 'mayonnaise');
-/* 
+
 myHamburger.setOption('size', 'small');
 myHamburger.setOption('addIngredient', 'salad');
-myHamburger.setOption('addition', 'seasoning'); */
+myHamburger.setOption('addition', 'seasoning'); 
+myHamburger.setOption('addition', 'seasoning'); 
+
+
 
 console.log(myHamburger);
 
-console.log(myHamburger.getBurgerCalories());
+myHamburger.getBurgerCalories();
+myHamburger.getBurgerPrice();
