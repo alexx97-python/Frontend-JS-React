@@ -3,7 +3,12 @@ import {
     FETCH_QUIZES_ERROR,
     FETCH_QUIZES_START,
     FETCH_QUIZES_SUCCESS,
-    FETCH_QUIZ_SUCCESS } from "./actionTypes";
+    FETCH_QUIZ_SUCCESS, 
+    QUIZ_SET_STATE,
+    FINISH_QUIZ,
+    QUIZ_NEXT_QUESTION,
+    QUIZ_RESTART
+} from "./actionTypes";
 
 
 export function fetchQuizes (){
@@ -69,4 +74,70 @@ export function fetchQuizesError(e){
         type: FETCH_QUIZES_ERROR,
         error: e
     }
+}
+
+export function quizSetState (answerState, results) {
+    return {
+        type: QUIZ_SET_STATE,
+        answerState,
+        results
+    }
+}
+
+export function finishQuiz (){
+    return {
+        type: FINISH_QUIZ,
+    }
+}
+
+export function quizNextQuestion(activeQuestion){
+    return {
+        type: QUIZ_NEXT_QUESTION,
+        activeQuestion
+    }
+}
+
+export function quizAnswerClick(answerId){
+    return (dispatch, getState) => {
+        const state = getState().quiz;
+
+        if(state.answeState) {
+            const key = Object.keys(state.answerState)[0]
+            if (state.answerState[key] === 'success') {
+                return
+            }
+        }
+
+        const question = state.quiz[state.activeQuestion];
+        const results = state.results;
+
+        if (question.rightAnswerId === answerId) {
+            if(!results[question.id]){
+                results[question.id] = 'success';
+            }
+            dispatch(quizSetState({[answerId]: 'success'}, results ))
+
+            const timeout = window.setTimeout(() => {
+                if (isQuizFinished(state)){
+                    dispatch(finishQuiz())
+                } else {
+                    dispatch(quizNextQuestion(state.activeQuestion + 1))
+                }
+                window.clearTimeout(timeout);
+            }, 1000)
+        } else {
+            results[question.id] = 'error';
+            dispatch(quizSetState({[answerId]: 'error'}, results ))
+        }
+    }
+}
+
+export function restartQuiz(){
+    return {
+        type: QUIZ_RESTART
+    }
+}
+
+function isQuizFinished(state) {
+    return state.activeQuestion + 1 === state.quiz.length;
 }
