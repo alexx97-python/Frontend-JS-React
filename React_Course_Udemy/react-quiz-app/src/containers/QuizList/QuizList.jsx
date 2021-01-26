@@ -23,25 +23,6 @@ class QuizList extends Component{
 
         // display all quizes
         this.props.fetchQuizes()
-        /* try {
-            const response = await axios.get('quizes.json');
-            console.log(response)
-            const quizes = [];
-            Object.keys(response.data).forEach((key, index) => {
-                quizes.push({
-                    id: key,
-                    name: `Test ${response.data[key][0].quizTitle}`
-                })
-            })
-
-            this.setState({
-                quizes,
-                loading: false
-            })
-
-        } catch (e) {
-             console.log(e)
-        } */
     }
 
     render(){
