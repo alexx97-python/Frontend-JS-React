@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { DiagnosticCategory } from 'typescript';
 import { AUTH_LOGOUT, AUTH_SUCCESS } from './actionTypes';
 
 export function auth(email, password, isLogin){
@@ -51,5 +52,22 @@ export function authSuccess(token){
     return {
         type: AUTH_SUCCESS,
         token
+    }
+}
+
+export function autoLogin() {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if (!token){
+            dispatch(logOut())
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            if (expirationDate <= new Date()){
+                dispatch(logOut())
+            } else {
+                dispatch(authSuccess(token));
+                dispatch(autoLogout(expirationDate.getTime() - new Date().getTime() / 1000));
+            }
+        }
     }
 }
