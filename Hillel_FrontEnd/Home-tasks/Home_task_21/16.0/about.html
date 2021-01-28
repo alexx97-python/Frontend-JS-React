@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson 16</title>
+	<style>
+		/*body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			width: 100%;
+			border: 3px solid pink;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.block{
+			width: 100px;
+			height: 100px;
+			border: 3px solid black;
+			position: relative;
+		}
+
+		.block.error{
+			background: red;
+		}*/
+
+		input:focus{
+			outline: 0;
+		}
+
+		input.error{
+			border-color: red;
+		}
+
+		input.focus{
+			background: lightblue;
+		}
+
+		form{
+			margin-bottom: 10px;
+			border: 1px solid black;
+			padding: 10px;
+		}
+		label{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- <div class="block"></div> -->
+
+	<form id="userLogin" action="">
+		<input id="userName" name="" type="text">
+		<input type="email">
+
+		<div class="radio--block">
+			<label>
+				<input type="radio" value="red" name="color">
+				<span>Red</span>
+			</label>
+			<label>
+				<input type="radio" value="green" name="color">
+				<span>Green</span>
+			</label>
+			<label>
+				<input type="radio" value="blue" name="color">
+				<span>Blue</span>
+			</label>
+		</div>
+
+		<hr>
+
+		<div class="radio--block">
+			<label>
+				<input type="radio" value="S" name="size">
+				<span>S</span>
+			</label>
+			<label>
+				<input type="radio" value="M" name="size">
+				<span>M</span>
+			</label>
+			<label>
+				<input type="radio" value="L" name="size">
+				<span>L</span>
+			</label>
+		</div>
+
+
+		<select>
+			<option value="">First</option>
+			<option value="" selected>Second</option>
+		</select>
+
+		<input type="submit" value="Click me">
+	</form>
+
+	<a data-href="https://google.com">go to google</a>
+	<input type="text">
+	
+	<script src="script.js"></script>
+</body>
+</html>

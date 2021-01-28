@@ -6,22 +6,22 @@
     <title>Home-task-21</title>
 <style>
 body{
-    margin: 0;
-}
-#moved-block{
-    height: 100px;
-    width: 200px;
-    margin: 200px auto;
-    background: green;
-    transition: margin 0.3s ease-in-out;
-}
-.buttons{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 100%;
     align-items: center;
-}
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    border: 3px solid pink;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+#block{
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+    position: relative;
+    }
 
 #boom {
     display: none;
@@ -30,69 +30,85 @@ body{
 </head>
 <body>
     
-    <div id="moved-block">
-        <div class="buttons">
-            <button id="left-btn"> < </button>
-            <p id='boom'>BOOM!</p>
-            <button id="right-btn"> > </button>
-        </div>
+    <div id="block">
+        <p id='boom'>BOOM!</p>
     </div>
 
 <script>
     //Const of elements
-    const btnLeft = document.body.querySelector('#left-btn');
-    const btnRight = document.body.querySelector('#right-btn');
-    const block = document.body.querySelector('#moved-block');
+    const block = document.body.querySelector('#block');
     const boom = document.body.querySelector('#boom');
-    const step = +prompt('Please, enter the number of px you want to move block on every click');
-
+    const step = 100; 
 
     // Event Listeners
-    btnLeft.addEventListener('click', moveBlockLeft);
-    btnRight.addEventListener('click', moveBlockRight);
+    document.addEventListener('keydown', moveBlock);
 
-    // Functions
-    function moveBlockRight () {
-        let style = window.getComputedStyle(block);
-        let margin = parseInt(style['margin-left'], 10);
-
-        if (window.innerWidth > margin + step){
-            block.style['margin-left'] = `${margin + step}px`;
-        } else {
-            block.style['margin-left'] = `${window.innerWidth}px`;
-            console.log('Enough')
-            setTimeout(() => {
-                block.style['margin-left'] = `${window.innerWidth - 2*step}px`;
-                boom.style.display = 'block';
-            }, 1000)
-            setTimeout(() => {
-                boom.style.display = 'none';
-            }, 3000)
-
-        }
-        
-
+    function moveBlock (e) {
+        const key = e.keyCode;
+        BlockEventHandler[key](e);
     }
 
-    function moveBlockLeft () {
-        style = window.getComputedStyle(block);
-        let margin = parseInt(style['margin-left'], 10);
+    const BlockEventHandler = {
+        37: function onLeftHandler(e){
+            const width = e.view.innerWidth;
+            let left = block.style.left === '' ? 0 : parseInt(block.style.left);
+            let nextStep = block.offsetLeft - step;
+            if (nextStep < 0){
+                document.removeEventListener('keydown', moveBlock);
+                block.style.left = `${left - block.offsetLeft}px`;
+                setTimeout(()=> {
+                    console.log(block.offsetLeft)
+                    block.style.left = `${block.offsetLeft - step*2}px`;
+                    console.log(block.offsetLeft)
+                    document.addEventListener('keydown', moveBlock);
+                }, 2000);
 
-        if (0 < margin - step){
-            block.style['margin-left'] = `${margin - step}px`;
-        } else {
-            block.style['margin-left'] = '0px';
-            console.log('Enough')
-            setTimeout(() => {
-                block.style['margin-left'] = `${2*step}px`;
-                boom.style.display = 'block';
-            }, 1000)
-            setTimeout(() => {
-                boom.style.display = 'none';
-            }, 3000)
+            }else {
+                block.style.left = `${left - step}px`;
+            }
+            
+            console.log(block.offsetLeft)
+            
+        },
+        38: function onUpHandler(e){
+            const height = e.view.innerHeight;
+            let top = block.style.top === '' ? 0 : parseInt(block.style.top);
+            block.style.top = `${top - step}px`;
+            console.log('Up')
+        },
+        39: function onRightHandler(e){
+            console.log(e)
+            console.log(block.offsetRight)
+            const width = e.view.innerWidth;
+            let left = block.style.left === '' ? 0 : parseInt(block.style.left);
+            let nextStep = block.offsetLeft + block.offsetWidth + step ;
+            if (nextStep > width){
+                document.removeEventListener('keydown', moveBlock);
+                block.style.right = 0
+                //block.style.left += `${width - block.offsetLeft - block.offsetWidth}px`;
+                setTimeout(()=> {
+                    console.log(block.offsetLeft)
+                    block.style.left = `${block.offsetLeft + step*2}px`;
+                    console.log(block.offsetLeft)
+                    document.addEventListener('keydown', moveBlock);
+                }, 2000);
+
+            }else {
+                block.style.left = `${left + step}px`;
+            }
+        },
+
+        40: function onDownHandler(e){
+            const height = e.view.innerHeight;
+            console.log(block.style)
+            let top = block.style.top === '' ? 0 : parseInt(block.style.top);
+            block.style.top = `${top + step}px`;
+            console.log('Down')
         }
     }
-    
+
+
+
 </script>
 </body>
 </html>
