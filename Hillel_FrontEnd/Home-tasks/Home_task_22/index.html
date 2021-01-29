@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-task-22</title>
+<style>
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <form>
+        <label for="input-1"> First input</label>
+        <input type="text" id="1" name="input-1">
+        <label for="input-2">Second input</label>
+        <input type="text" id="2" name="input-2">
+        <label for="input-3">Third input</label>
+        <input type="text" id="3" name="input-3">
+    </form>
+
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+<script>
+
+const inputs = document.querySelectorAll('input');
+const textArea = document.querySelector('textarea');
+let values = [];
+
+inputs.forEach(input => {
+    input.addEventListener('change', onChangeHandler);
+})
+
+function onChangeHandler (e){
+    switch(e.target.id){
+        case '1':
+            values[0] = e.target.value;
+            break;
+        case '2':
+            values[1] = e.target.value;
+            break;
+        case '3':
+            values[2] = e.target.value;
+            break;
+    }
+    textArea.innerText = values
+}
+
+</script>
+</body>
+</html>

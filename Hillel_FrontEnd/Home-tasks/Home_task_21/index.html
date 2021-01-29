@@ -21,6 +21,9 @@ body{
     height: 100px;
     border: 3px solid black;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
 
 #boom {
@@ -38,7 +41,7 @@ body{
     //Const of elements
     const block = document.body.querySelector('#block');
     const boom = document.body.querySelector('#boom');
-    const step = 100; 
+    const step = 50;
 
     // Event Listeners
     document.addEventListener('keydown', moveBlock);
@@ -53,43 +56,48 @@ body{
             const width = e.view.innerWidth;
             let left = block.style.left === '' ? 0 : parseInt(block.style.left);
             let nextStep = block.offsetLeft - step;
-            if (nextStep < 0){
+            if (nextStep <= 0){
                 document.removeEventListener('keydown', moveBlock);
                 block.style.left = `${left - block.offsetLeft}px`;
+                boom.style.display = 'flex';
                 setTimeout(()=> {
-                    console.log(block.offsetLeft)
-                    block.style.left = `${block.offsetLeft - step*2}px`;
-                    console.log(block.offsetLeft)
+                    block.style.left = `-${width/2 - block.offsetWidth/2 - step*2}px`;
+                    boom.style.display = null;
                     document.addEventListener('keydown', moveBlock);
                 }, 2000);
 
             }else {
                 block.style.left = `${left - step}px`;
             }
-            
-            console.log(block.offsetLeft)
-            
         },
         38: function onUpHandler(e){
             const height = e.view.innerHeight;
             let top = block.style.top === '' ? 0 : parseInt(block.style.top);
-            block.style.top = `${top - step}px`;
-            console.log('Up')
+            let nextStep = block.offsetTop - step;
+            if (nextStep <= 0 ){
+                document.removeEventListener('keydown', moveBlock);
+                block.style.top = `${top - block.offsetTop}px`;
+                boom.style.display = 'flex';
+                setTimeout(()=> {
+                    block.style.top = `${parseInt(block.style.top) + step*2}px`;
+                    boom.style.display = null;
+                    document.addEventListener('keydown', moveBlock);
+                }, 2000);
+            } else {
+                block.style.top = `${top - step}px`;
+            }
         },
         39: function onRightHandler(e){
-            console.log(e)
-            console.log(block.offsetRight)
             const width = e.view.innerWidth;
             let left = block.style.left === '' ? 0 : parseInt(block.style.left);
             let nextStep = block.offsetLeft + block.offsetWidth + step ;
-            if (nextStep > width){
+            if (nextStep >= width){
                 document.removeEventListener('keydown', moveBlock);
-                block.style.right = 0
-                //block.style.left += `${width - block.offsetLeft - block.offsetWidth}px`;
+                block.style.left = `${width/2-block.offsetWidth/2}px`;
+                boom.style.display = 'flex';
                 setTimeout(()=> {
-                    console.log(block.offsetLeft)
-                    block.style.left = `${block.offsetLeft + step*2}px`;
-                    console.log(block.offsetLeft)
+                    block.style.left = `${parseInt(block.style.left) - step*2}px`;
+                    boom.style.display = null;
                     document.addEventListener('keydown', moveBlock);
                 }, 2000);
 
@@ -100,10 +108,22 @@ body{
 
         40: function onDownHandler(e){
             const height = e.view.innerHeight;
-            console.log(block.style)
+            console.log(height)
             let top = block.style.top === '' ? 0 : parseInt(block.style.top);
-            block.style.top = `${top + step}px`;
-            console.log('Down')
+            let nextStep = block.offsetTop + step + block.offsetHeight;
+            console.log(nextStep)
+            if (nextStep >= height){
+                document.removeEventListener('keydown', moveBlock);
+                block.style.top = `${height/2-block.offsetHeight/2}px`;
+                boom.style.display = 'flex';
+                setTimeout(()=> {
+                    block.style.top = `${parseInt(block.style.top) - step*2}px`;
+                    boom.style.display = null;
+                    document.addEventListener('keydown', moveBlock);
+                }, 2000);
+            } else {
+                block.style.top = `${top + step}px`;
+            }
         }
     }
 
