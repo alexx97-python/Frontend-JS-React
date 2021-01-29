@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <title>Home-task_23</title>
+<style>
+    .options{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 300px;
+    }
+    #figure{
+        height: 100px;
+        width: 100px;
+        border: 3px solid black;
+        background: red;
+    }
+
+    .circle {
+        border-radius: 50%;
+    }
+
+    .rectangle {
+        width: 200px !important;
+    }
+
+
+
+
+</style>
+</head>
+<body>
+    <div class="options">
+        <select name="figure-options" id="figure-form">
+            <option value="square">Квадрат</option>
+            <option value="rectangle">Прямоугольник</option>
+            <option value="circle">Круг</option>
+        </select>
+        <input type="text" class="color-value">
+    </div>
+
+    <div id="figure">
+    </div>
+
+<script>
+    const input = document.querySelector('.color-value');
+    const select = document.querySelector('#figure-form');
+    const figure = document.querySelector('#figure');
+
+    input.addEventListener('change', changeFigureColor);
+    select.addEventListener('change', changeFigureForm);
+
+function changeFigureColor(e){
+    if (isColor(e.target.value)){
+        figure.style.background = e.target.value;
+    }else {
+        alert('You entered not valid CSS color. Try again')
+    }
+}
+
+function changeFigureForm(e) {
+    switch (e.target.value){
+        case 'rectangle':
+            figure.classList='rectangle';
+            break;
+        case 'circle':
+            figure.classList='circle';
+            break;
+        case 'square':
+            figure.classList=null;
+            break;
+        }
+}
+
+function isColor(strColor){
+    let s = new Option().style;
+    s.color = strColor;
+    return s.color == strColor;
+}
+
+</script>
+</body>
+</html>
